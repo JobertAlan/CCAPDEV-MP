@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- HTML Elements -->
+        <!-- This is used to give a magnifying glass icon to search buttons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Change this for different css files in the future -->
     <link rel="stylesheet" href="styles/index.css">
 
     <title>Document</title>
 </head>
 <body>
-    <div class="title_container">
-        <div class="title_card"> 
-            <h1>Yappuccino Placeholder</h1>
-            <div class="search_bar">
-                <input type="text" placeholder="Search...">
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, provident nemo? Facilis eius adipisci veritatis laboriosam excepturi, 
-            mollitia tempore asperiores eligendi quam consectetur numquam optio, ipsum nam maiores accusamus! Autem.</p>
+    <nav>
+        <div id="nav-links">
+            <a href="#Home">Home</a>
+            <a href="#Cafes">Cafés</a>
+            <a href="#Reviews">Reviews</a>
         </div>
-    </div>
-    
-    <div class="review_section">
-        <div class="header_section">
-            <h2 class="review_header">Recent Reviews</h2>
+        <div id="search-container">
+            <form action="">
+                    <!-- Uses an imported element. See <head> for context -->
+                <input type="text" placeholder="Vibe check..." name="search"/> <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
-        <div class="review_grid">
-
-
+        <div id="login-container">
+            <button>Vibe Check</button>
         </div>
-    </div>
+    </nav>
 </body>
 </html>

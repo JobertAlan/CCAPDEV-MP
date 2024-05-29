@@ -1,5 +1,8 @@
+/* Note, no @media rules to fallback in case of weird window/screen sizes. I can't be bothered to do that right now -jobert */
+
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -9,58 +12,53 @@ h1 {
     color: blueviolet;
 }
 
-div.title_container {
-    position: relative;
-    background-image: url(../images/frieren_stock_wallpaper.jpg);
-    background-position-x: center;
-    background-position-y: bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+/* FF: CSS for the <nav> bar */
 
-div.title_container div.title_card {
-    position: relative;
-    z-index: 5;
-    color: white;
-    margin-left: 20px;
-}
-
-div.title_container div.title_card div.search_bar {
+nav {
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: #c5ae9f;
 }
-
-div.title_container div.title_card div.search_bar input[type=text]{
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
+/* For the <a> links in the <nav> bar */
+#nav-links a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
     font-size: 17px;
 }
-
-div.review_section {
-    position: relative;
-    padding-top: 10px;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 10px;
-}
-
-div.review_section div.header_section {
-    padding-bottom: 30px;
-}
-
-div.review_section div.header_section h2.review_header {
-    text-align: center;
+#nav-links a:hover {
+    background-color: #a3826c;
     color: black;
 }
-
-div.review_section div.review_grid {
-    
+#nav-links a.active {
+    background-color: #816451;
+    color: white;
 }
 
+/* For the search bar in <nav> */
+nav #search-container {
+    float: right;
+}
+/* For the text inside the search box */
+nav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+/* For the search button */
+nav #search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+nav #search-container button:hover {
+    background: #ccc;
+}
