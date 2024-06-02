@@ -19,21 +19,35 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div id="nav-links">
-            <a href="#Home">Home</a>
-            <a href="#Cafes">Cafés</a>
-            <a href="#Reviews">Reviews</a>
+    <div id="nav-logo-search">
+        <div id="nav-logo-search-container">
+            <div id="logo-container">
+                <a href="index.html">
+                    <img id="logo" src="/images/ph-logo.jpg" class=""/><h1>Yappuccino</h1>
+                </a>
+            </div>
+            <div id="search-container">
+                <div id="search-style">
+                    <form action="">
+                        <!-- Uses an imported element. See <head> for context -->
+                        <input type="text" placeholder="Vibe check..." name="search"/> <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>  
+            </div>
         </div>
-        <div id="search-container">
-            <form action="">
-                    <!-- Uses an imported element. See <head> for context -->
-                <input type="text" placeholder="Vibe check..." name="search"/> <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div id="login-container">
-            <button>Vibe Check</button>
-        </div>
-    </nav>
+
+        <nav>
+            <div id="nav-links">
+                <a href="#Home"><i class="fa fa-home"></i> Home</a>
+                <a href="#Cafes"><i class="fa fa-search"></i> Cafés</a>
+                <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a>
+            </div>
+            <div id="login-container">
+                <button>Vibe Check</button>
+            </div>
+        </nav>
+
+    </div>
+
 </body>
 </html>

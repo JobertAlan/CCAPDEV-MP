@@ -1,6 +1,6 @@
 /* Note, no @media rules to fallback in case of weird window/screen sizes. I can't be bothered to do that right now -jobert */
 
-
+/* Universal classes(?) */
 body {
     font-family: Poppins, sans-serif;
     margin: 0;
@@ -8,20 +8,82 @@ body {
     min-height: 100%;
 }
 
-h1 {
-    color: blueviolet;
+
+/* Container for the entire navigation bar */
+#nav-logo-search {
+    display: flex;
+    flex-direction: column;
+    background-color: #967259;
 }
+
+#nav-logo-search-container {
+    display: flex;
+    
+    margin: 10px 0 10px;
+}
+
+#logo-container {
+    margin-left: 12.75%;
+}
+
+/* Search bar stuff goes here */
+#search-container {
+    margin-right: 12.75%;
+
+}
+
+#search-style {
+    width: 100%;
+}
+
+#search-style input {
+ 
+}
+
+#search-style button {
+
+}
+
+/* Logo sizing */
+#logo-container a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    color: black;
+}
+
+#logo-container h1 {
+    padding-left: 10px;
+}
+
+#logo {
+    width: 7%;
+    height: auto;
+    display: inline;
+    clip-path: circle();
+}
+
+
+
+
+
 
 /* FF: CSS for the <nav> bar */
 
 nav {
+    padding: 10px 0px 10px;
     overflow: hidden;
     background-color: #c5ae9f;
 }
+
+#nav-links {
+    float: left;
+    margin-left: 12.75%
+}
+
 /* For the <a> links in the <nav> bar */
 #nav-links a {
-    float: left;
-    display: block;
     color: black;
     text-align: center;
     padding: 14px 16px;
@@ -29,6 +91,7 @@ nav {
     font-size: 17px;
 }
 #nav-links a:hover {
+    overflow: hidden;
     background-color: #a3826c;
     color: black;
 }
@@ -37,28 +100,8 @@ nav {
     color: white;
 }
 
-/* For the search bar in <nav> */
-nav #search-container {
+#login-container {
     float: right;
 }
-/* For the text inside the search box */
-nav input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-}
-/* For the search button */
-nav #search-container button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-nav #search-container button:hover {
-    background: #ccc;
-}
+
+
