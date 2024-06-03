@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- HTML Elements -->
+        <!-- This is used to give a magnifying glass icon to search buttons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Change this for different css files in the future -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/cafe.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cafe.html">Cafés</a>
+            <a href="#Reviews">Reviews</a>
+        </div>
+        <div id="search-container">
+            <form action="">
+                    <!-- Uses an imported element. See <head> for context -->
+                <input type="text" placeholder="Vibe check..." name="search"/> <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div id="login-container">
+            <button>Vibe Check</button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!--Cafecontainer will be the to be duplicated-->
+        <div class="cafecontainer">
+            <!--seperate Link that will go through the cafe stuff-->
+            <a href ="google.com" class ="clickcafe">
+                    <img src="images/tokyoghoul.jpg" alt="">
+                <h1 class = "title">Anteiku</h1>
+            </a>
+
+            <div class ="line"></div>
+
+            <!--The review stuff, should modify the ratings, number of reviews and the overall score-->
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Amazing</h4> <!--Modify the word here -->
+                    <p><span id="numReview">122</span> People have reviewed</p> <!--Modify the amount of people in the span-->
+                </div>
+                <div class = scorebox><h1 id="scorenumber 1">100</h1></div> <!--Modify the score here-->
+            </div>
+
+            <div class ="line"></div>
+
+            <!--And the synposis of the cafe, should limit the amount of characters placed here in javascript or smth as it kinda screws over the css-->
+            <!--Add more characters or words to see what I mean-->
+            <div class = "synposis"> <p>On the surface, the cafe appeared innocent, plain, and pleasant. However, at its heart, it was also an organization of ghouls from the 20th ward.</p></div>
+        </div>
+
+
+
+        <div class="cafecontainer">
+
+            <a href ="google.com" class ="clickcafe">
+                    <img src="images/Cafe_Leblanc.webp" alt="">
+                <h1 class="title">Leblanc </h1>
+            </a>
+
+            <div class ="line"></div>
+
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Pretty Good</h4>
+                    <p><span id="numReview">21</span> People have reviewed</p>
+                </div>
+                <div class = scorebox><h1 id="scorenumber 2">88</h1></div>
+            </div>
+
+            <div class ="line"></div>
+
+            <div class = "synposis"><p>"As long as I'm here, the world leaves me be. No annoyances or troublesome people to deal with. It's like my own personal hideaway."</p></div>
+        </div>
+
+        <div class="cafecontainer">
+
+            <a href ="google.com" class ="clickcafe">
+                    <img src="images/r2gDD4J16cTi1L1d.jpg_large" alt="">
+                <h1 class="title">Terrace</h1>
+            </a>
+
+            <div class ="line"></div>
+
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Decent</h4>
+                    <p><span id="numReview">33</span> People have reviewed</p>
+                </div>
+                <div class = scorebox><h1 id="scorenumber 2">79</h1></div>
+            </div>
+
+            <div class ="line"></div>
+
+            <div class = "synposis"><p>Returning to Miura after being notified of the death of his grandmother, with the intention to close her struggling café, Cafe Terrace Familia.</p></div>
+        </div>
+
+        <div class="cafecontainer">
+
+            <a href ="google.com" class ="clickcafe">
+                    <img src="images/image-w1280.webp" alt="">
+                <h1 class="title">Shirokuma Cafe</h1>
+            </a>
+
+            <div class ="line"></div>
+
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Pretty Good</h4>
+                    <p><span id="numReview">21</span> People have reviewed</p>
+                </div>
+                <div class = scorebox><h1 id="scorenumber 2">86</h1></div>
+            </div>
+
+            <div class ="line"></div>
+
+            <div class = "synposis"><p> It revolves around the everyday lives of a group of animals mingling with humans at a café run by a polar bear. </p></div>
+        </div>
+
+        <div class="cafecontainer">
+
+            <a href ="google.com" class ="clickcafe">
+                    <img src="images/Quindecim_front.webp" alt="">
+                <h1 class="title">Quindecim </h1>
+            </a>
+
+            <div class ="line"></div>
+
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Bad</h4>
+                    <p><span id="numReview">??</span> People have reviewed</p>
+                </div>
+                <div class = scorebox><h1 id="scorenumber 2">66</h1></div>
+            </div>
+
+            <div class ="line"></div>
+
+            <div class = "synposis"><p>The Quindecim appears to be modeled after a modern European bar. The counter is lavishly decorated in a Grecian/Roman design. There are several shelves stocked with fine wine and alcohol.</p></div>
+        </div>
+
+
+    </div>
+</body>
+</html>
