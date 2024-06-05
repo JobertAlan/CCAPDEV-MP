@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Cafe Cassalu</title>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- HTML Elements -->
-        <!-- This is used to give a magnifying glass icon to search buttons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" media="all" href="styles/review.css">
+
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-    <!-- Change this for different css files in the future -->
-    <link rel="stylesheet" type="text/css" media="all" href="./styles/index.css">
-
-    <title>Document</title>
 </head>
 <body>
     <!-- Top bar containing Logo + search -->
@@ -49,6 +49,55 @@
             </div>
         </nav>
     </div>
+
+    <!-- Contains image banner + Name & rating of cafe -->
+    <div id="reviewHeaderContainer-8bythestreet">
+        <div class="reviewCafeNameContainer">
+            <h3>★★★★☆ 4.4</h3>
+            <h1>8 by the Street Cafe - Naga Road</h1>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Review Buttons -->
+    <div class="reviewButtonContainer">
+        <button>
+            ✍️ Write a Review
+        </button>
+
+        <button>
+            ☝ Edit Your Review
+        </button>
+    </div>
+
+    <hr>
+
+    <!-- Reviews -->
+
+    <br>
+    <h1 class="h1Review">Reviews</h1>
+    <br>
+
+    <div class="reviewContentContainer">
+        <div class="reviewPicContainer">
+            <img src="./images/review/8_by_the_street_review-400w.png">
+            <h2>- Gelo O.</h2>
+        </div>
+        <div class="reviewTextContainer">
+            <p class="reviewRating">★★★★★</p>
+
+            <p class="reviewProper">
+                Ang sarap ng Korean Dalgonna Latte, nakaka adik! Will try other flavors Food: 5 Service: 5 Atmosphere: 5
+            </p>
+
+            <div class="voteButtonContainer">
+                <h3>️‍🔥 0</h3> <button>Updoot</button>
+            </div>
+        </div>
+    </div>
+    
+
 
 </body>
 </html>

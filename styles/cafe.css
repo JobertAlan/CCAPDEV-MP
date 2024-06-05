@@ -1,0 +1,97 @@
+@import "reset.css";
+@import "navbar.css";
+
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
+    padding: 10px;
+    align-self: center;
+    padding-left: 30px;
+}
+
+
+.cafecontainer {
+    width: 360px;
+    height: 500px;
+    margin: 0;
+    background-color: #c5ae9f;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clickcafe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.title {
+    align-self: flex-start;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin: 0;
+    color: black;
+    word-wrap: break-word;
+}
+
+.clickcafe img {
+
+}
+
+.imgContainer {
+    padding-top: 15px;
+    overflow: hidden;
+    border-radius: 25px;
+    width: 330px;
+    height: 180px;
+}
+
+hr {
+    width: 330px;
+    border: 1px solid #38220f;
+}
+
+.reviewcontainer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    height: 90px;
+    line-height: 16px;
+}
+
+.score {
+    margin: 0px;
+    width: 60%;
+    padding-left: 12px;
+}
+
+
+.scorebox {
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+#scorenumber{
+    color: brown;
+}
+
+.synposis {
+    word-wrap: break-word;
+    font-size: 11px;
+    padding: 0 8px;
+}
