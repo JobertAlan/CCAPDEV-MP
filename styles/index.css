@@ -1,19 +1,10 @@
 /* Note, no @media rules to fallback in case of weird window/screen sizes. I can't be bothered to do that right now -jobert */
 @import "reset.css";
-
 @import "navbar.css";
 
-/* Universal classes(?) */
-* {
-    box-sizing: border-box;
-    font-family: Poppins, sans-serif;
-  }
 
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
+
+
 
 
 

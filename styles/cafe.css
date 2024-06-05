@@ -1,3 +1,8 @@
+@import "reset.css";
+@import "navbar.css";
+
+
+
 .container {
     display: flex;
     flex-direction: row;
@@ -5,12 +10,14 @@
     flex-direction: row;
     gap: 15px;
     padding: 10px;
+    align-self: center;
+    padding-left: 30px;
 }
 
 
 .cafecontainer {
-    width: 300px;
-    height: 400px;
+    width: 360px;
+    height: 500px;
     margin: 0;
     background-color: #c5ae9f;
     border-radius: 8px;
@@ -29,23 +36,28 @@
 
 .title {
     align-self: flex-start;
+    padding-left: 15px;
+    padding-top: 10px;
     margin: 0;
     color: black;
     word-wrap: break-word;
 }
 
 .clickcafe img {
-    padding-top: 10px;
-    width: 280px;
-    height: 150px;
-    border-radius: 20px;
+
 }
 
-.line {
-    height: 1px;
-    width: 280px;
-    background-color: black;
-    margin: 2px;
+.imgContainer {
+    padding-top: 15px;
+    overflow: hidden;
+    border-radius: 25px;
+    width: 330px;
+    height: 180px;
+}
+
+hr {
+    width: 330px;
+    border: 1px solid #38220f;
 }
 
 .reviewcontainer {

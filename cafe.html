@@ -12,42 +12,67 @@
     <!-- HTML Elements -->
         <!-- This is used to give a magnifying glass icon to search buttons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Change this for different css files in the future -->
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/cafe.css">
+    <link rel="stylesheet" type="text/css" media="all" href="styles/cafe.css">
 
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div id="nav-links">
-            <a href="index.html">Home</a>
-            <a href="cafe.html">Cafés</a>
-            <a href="#Reviews">Reviews</a>
-        </div>
-        <div id="search-container">
-            <form action="">
-                    <!-- Uses an imported element. See <head> for context -->
-                <input type="text" placeholder="Vibe check..." name="search"/> <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div id="login-container">
-            <button>Vibe Check</button>
-        </div>
-    </nav>
 
+    <!-- Top bar containing Logo + search -->
+    <div id="nav-logo-search">
+        <div id="nav-logo-search-container">
+            <div id="logo-container">
+                <a href="index.html" id="logo-anchor"><img src="./images/ph-logo.jpg"/><h1>Yappuccino</h1></a>
+            </div>
+            <div id="search-container">
+                <form>
+                    <div id="search-bar">
+                        <span class="material-symbols-outlined">Search</span>
+                        <input class="search-input" type="search" placeholder="Vibe check">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom nav containing links -->
+        <nav>
+            <div id="nav-links">
+                <a href="index.html"><i class="fa fa-home"></i> Home</a>
+                <a href="cafe.html"><i class="fa fa-search"></i> Cafés</a>
+                <!-- <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a> -->
+            </div>
+            <div id="button-container">
+                <a href=""><button><i class="fa fa-pencil" aria-hidden="true"></i> Glaze a Café</button></a>
+                <a href="login.html"><button><i class="fa fa-sign-in"></i> Start Yapping</button></a>
+            </div>
+        </nav>
+    </div>
+
+  
+
+
+    <!-- Reviews -->
+
+    <!-- 8 by the street cafe -->
     <div class="container">
 
         <!--Cafecontainer will be the to be duplicated-->
         <div class="cafecontainer">
             <!--seperate Link that will go through the cafe stuff-->
-            <a href ="google.com" class ="clickcafe">
-                    <img src="images/tokyoghoul.jpg" alt="">
-                <h1 class = "title">Anteiku</h1>
-            </a>
+            <div class="imgContainer">
+                <a href ="8bythestreet-review.html" class ="clickcafe">
+                    <img id="8bythestreet-img" src="images/review/8_by_the_street_review-400w.png" alt=""> 
+                </a>
+            </div>
 
-            <div class ="line"></div>
+            <h1 class = "title"> 8 by the Street</h1>
+            <hr>
+            
+
+            
 
             <!--The review stuff, should modify the ratings, number of reviews and the overall score-->
             <div class ="reviewcontainer">
@@ -58,7 +83,7 @@
                 <div class = scorebox><h1 id="scorenumber 1">100</h1></div> <!--Modify the score here-->
             </div>
 
-            <div class ="line"></div>
+            <hr>
 
             <!--And the synposis of the cafe, should limit the amount of characters placed here in javascript or smth as it kinda screws over the css-->
             <!--Add more characters or words to see what I mean-->
@@ -66,15 +91,18 @@
         </div>
 
 
-
+        <!-- container for cafe maxims -->
         <div class="cafecontainer">
 
-            <a href ="google.com" class ="clickcafe">
-                    <img src="images/Cafe_Leblanc.webp" alt="">
-                <h1 class="title">Leblanc </h1>
-            </a>
+            <div class="imgContainer">
+                <a href ="maxims-review.html" class ="clickcafe">
+                    <img id="cafemaxims-img" src="images/review/cafe_maxims_review-400w.png" alt="">
+                </a>
+            </div>
+            
+            <h1 class="title">Cafe Maxims</h1>
 
-            <div class ="line"></div>
+            <hr>
 
             <div class ="reviewcontainer">
                 <div class ="score">
@@ -84,19 +112,24 @@
                 <div class = scorebox><h1 id="scorenumber 2">88</h1></div>
             </div>
 
-            <div class ="line"></div>
+            <hr>
 
             <div class = "synposis"><p>"As long as I'm here, the world leaves me be. No annoyances or troublesome people to deal with. It's like my own personal hideaway."</p></div>
         </div>
 
+
+        <!-- cafe cassalu -->
         <div class="cafecontainer">
 
-            <a href ="google.com" class ="clickcafe">
-                    <img src="images/r2gDD4J16cTi1L1d.jpg_large" alt="">
-                <h1 class="title">Terrace</h1>
-            </a>
+            <div class="imgContainer">
+                <a href ="cassalu-review.html" class ="clickcafe">
+                    <img src="images/review/cassalu_review-400w.png" >
+                </a>
+            </div>
 
-            <div class ="line"></div>
+            <h1 class="title">Cassalu</h1>
+
+            <hr>
 
             <div class ="reviewcontainer">
                 <div class ="score">
@@ -106,19 +139,24 @@
                 <div class = scorebox><h1 id="scorenumber 2">79</h1></div>
             </div>
 
-            <div class ="line"></div>
+            <hr>
 
             <div class = "synposis"><p>Returning to Miura after being notified of the death of his grandmother, with the intention to close her struggling café, Cafe Terrace Familia.</p></div>
         </div>
 
+
+        <!-- Dear Joe container -->
         <div class="cafecontainer">
 
-            <a href ="google.com" class ="clickcafe">
-                    <img src="images/image-w1280.webp" alt="">
-                <h1 class="title">Shirokuma Cafe</h1>
-            </a>
+            <div class="imgContainer">
+                <a href ="dearjoe-review.html" class ="clickcafe">
+                    <img src="images/review/dear_joe_review-400w.png" alt="">
+                </a>
+            </div>
 
-            <div class ="line"></div>
+            <h1 class="title">Dear Joe</h1>
+
+            <hr>
 
             <div class ="reviewcontainer">
                 <div class ="score">
@@ -128,19 +166,24 @@
                 <div class = scorebox><h1 id="scorenumber 2">86</h1></div>
             </div>
 
-            <div class ="line"></div>
+            <hr>
 
             <div class = "synposis"><p> It revolves around the everyday lives of a group of animals mingling with humans at a café run by a polar bear. </p></div>
         </div>
 
+
+        <!-- Flight Cafe container -->
         <div class="cafecontainer">
 
-            <a href ="google.com" class ="clickcafe">
-                    <img src="images/Quindecim_front.webp" alt="">
-                <h1 class="title">Quindecim </h1>
-            </a>
+            <div class="imgContainer">
+                <a href ="flightcafe-review.html" class ="clickcafe">
+                    <img src="images/review/flight_cafe_review-400w.png" alt="">
+                </a>
+            </div>
 
-            <div class ="line"></div>
+            <h1 class="title">Flight Cafe</h1>
+
+            <hr>
 
             <div class ="reviewcontainer">
                 <div class ="score">
@@ -150,7 +193,7 @@
                 <div class = scorebox><h1 id="scorenumber 2">66</h1></div>
             </div>
 
-            <div class ="line"></div>
+            <hr>
 
             <div class = "synposis"><p>The Quindecim appears to be modeled after a modern European bar. The counter is lavishly decorated in a Grecian/Roman design. There are several shelves stocked with fine wine and alcohol.</p></div>
         </div>
