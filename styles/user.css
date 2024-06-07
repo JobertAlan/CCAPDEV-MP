@@ -1,0 +1,131 @@
+@import "reset.css";
+@import "navbar.css";
+
+.cont {
+    margin-left: 12.75%;
+    margin-right: 12.75%;
+    margin-top: 8px;
+}
+
+.left-cont {
+    float: left;
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-right: 16px;
+}
+
+.user-info {
+    padding: 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.right-cont {
+    float: left;
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-right: 16px;
+}
+
+.stats {
+    padding: 8px;
+    height: 88px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.stat-num {
+    float: left;
+    border-right: 1px solid black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.last-stat-num {
+    float: left;
+    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.review-cont {
+    float: right;
+}
+
+.interact-cont button {
+    padding: 10px;
+    background: none;
+}
+
+.h1Review {
+    margin-top: var(--dl-space-space-unit);
+    margin-left: var(--dl-space-space-twounits);
+    margin-bottom: var(--dl-space-space-unit);
+    letter-spacing: 2px;
+    padding-left: 50px;
+}
+
+.reviewContentContainer {
+    width: 100%;
+    height: 408px;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    padding-left: 25px;
+    padding-bottom: 8px;
+    margin-left: 25px;
+}
+
+.reviewPicContainer {
+    width: 400px;
+    height: 344px;
+    float: left;
+    margin-right: 30px;
+    padding-top: 20px;
+    
+}
+
+.reviewPicContainer img {
+    width: 400px;
+    height: 316px;
+    overflow: hidden;
+}
+
+.reviewTextContainer {
+    margin-right: 20px;
+}
+
+.reviewTextContainer .reviewRating {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 15px;
+}
+
+.reviewProper {
+    line-height: 1.5;
+    letter-spacing: 1.15px;
+}
+
+.voteButtonContainer {
+    display: flex;
+    gap: 20px;
+    margin-top: -5px;
+}
+
+.voteButtonContainer button {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(125, 232, 125, 0.81);
+    padding: 5px;
+}
