@@ -21,6 +21,13 @@
     border-color: black;
 }
 
+.user-info img {
+    border-radius: 50%;
+    align-self: center;
+    max-width: 100%;
+    max-height: 100px;
+}
+
 .right-cont {
     float: left;
     margin-left: 16px;
