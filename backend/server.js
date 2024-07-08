@@ -23,6 +23,10 @@ app.use((req, res, next) => {
 // More middleware
 app.use(express.json());
 
+// to allow file uploads
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 // Body parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));

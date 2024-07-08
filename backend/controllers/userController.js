@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+const User = require('../models/cafeModel');
 const mongoose = require('mongoose');
 
 // Get all users
