@@ -31,6 +31,9 @@ const userSchema = new Schema({
         validate: [validateEmail, 'Please fill a valid email address'],
         match: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please fill a valid email address']
     },
+    picturePath: {
+        type: String
+    },
     isOwner: {
         type: Boolean,
         required: true

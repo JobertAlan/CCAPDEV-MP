@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
 const cafeSchema = new Schema({
     name: {
         type: String,
@@ -14,12 +13,10 @@ const cafeSchema = new Schema({
         type: String,
         required: true
     },
-    rating: {
-        type: Number,
-        default: '0'
-    },
-    ownerID: {
-        type: Number
+    ownedBy: {
+        type: Schema.Types.ObjectId, ref: 'User'
     }
 
 });
+
+module.exports = mongoose.model('Cafe', cafeSchema);

@@ -7,9 +7,9 @@ const express = require('express'); // <- '' package that we require
 const mongoose = require('mongoose');
 
 // Routes 
-const reviewRoutes = require('./routes/reviews.js');
-const userRoutes = require('./routes/users.js');
-
+const reviewRoutes = require('./routes/reviewRoutes.js')
+const userRoutes = require('./routes/userRoutes.js')
+//const cafeRoutes = require('./routes/cafeRoutes.js')
 
 // Stores the express app
 const app = express();
