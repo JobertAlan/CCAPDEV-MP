@@ -1,3 +1,5 @@
+
+// Works off of the model in the models folder
 const User = require('../models/userModel');
 const mongoose = require('mongoose');
 
