@@ -31,11 +31,11 @@ const getUser = async (req, res) => {
 // Create new user
 const createUser = async (req, res) => {
     // Instantiates a request object
-    const {password, firstName, lastName, email, isOwner} = req.body
+    const {email, password, firstName, lastName, isOwner} = req.body
 
     try { // Creates an user document from the above template and then sends it as a response and is stored as a json in MongoDB Atlus
-        const user = await User.create({password, firstName, lastName, email, isOwner})
-        res.status(200).json(user)
+        const user = await User.signup(email, password, firstName, lastName, isOwner)
+        res.status(200).json({email, user})
     } catch (error) {   
         res.status(400).json({error: error.message}) // Sends the error message
     }

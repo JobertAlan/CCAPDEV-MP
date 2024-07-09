@@ -6,6 +6,9 @@ const express = require('express'); // <- '' package that we require
 // Database require
 const mongoose = require('mongoose');
 
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 // Routes 
 const reviewRoutes = require('./routes/reviewRoutes.js')
 const userRoutes = require('./routes/userRoutes.js')
@@ -22,6 +25,7 @@ app.use((req, res, next) => {
 
 // More middleware
 app.use(express.json());
+app.use(cookieParser());
 
 // to allow file uploads
 const fileUpload = require('express-fileupload');
@@ -30,6 +34,9 @@ app.use(fileUpload());
 // Body parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));
+
+//static folder
+app.use(express.static('../frontend/public'));
 
 
 // Connect to mongoDB database + start up the server

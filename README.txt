@@ -20,6 +20,8 @@ Pre-requisite: Install Node.js v.20.14.0
         like: username, password, port number, etc.
 5. Install Mongoose
     5a. Type "npm install mongoose"
+~Additional packages that have been added since:
+    - npm install --save bcrypt validator cookie-parser express-session express-fileupload
 (Optional)
 6. Download and install postman from postman.com/downloads/
     6a. https://youtu.be/8DploTqLstE?list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&t=715
