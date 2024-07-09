@@ -3,6 +3,7 @@ const express = require('express');
 // Importing functions from the userController.js file
 const {
     createUser,
+    signIn,
     getUsers,
     getUser,
     deleteUser,
@@ -19,6 +20,8 @@ router.get('/', getUsers);
 router.get('/:id', getUser);
 
 router.post('/signup', createUser);
+
+router.post('/signin', signIn);
 
 router.delete('/:id', deleteUser);
 

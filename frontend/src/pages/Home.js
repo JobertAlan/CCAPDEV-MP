@@ -9,7 +9,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const response = await fetch('/user')
+            const response = await fetch('/api/user')
             const json = await response.json()
 
             if (response.ok) {

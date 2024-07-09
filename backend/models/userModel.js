@@ -36,7 +36,7 @@ const userSchema = new Schema({
     },
     isOwner: {
         type: Boolean,
-        required: true
+        default: false
     },
     picturePath: {
         type: String
@@ -46,6 +46,12 @@ const userSchema = new Schema({
 
 // Signup method
 userSchema.statics.signup = async function (email, password, firstName, lastName, isOwner) {
+    
+    // Field Validation
+    if (!validator.isStrongPassword(password)) {
+        throw Error ('Password needs to be longer and requires symbols, numbers, and case-mixed letters.')
+    }
+    
     const exists = await this.findOne({ email })
 
     if (exists) {
@@ -60,6 +66,29 @@ userSchema.statics.signup = async function (email, password, firstName, lastName
 
     return user
 
+}
+
+// Signin method
+userSchema.statics.signin = async function (email, password) {
+
+    // Field Validation
+    if (!email || !password) {
+        throw Error('Please fill all fields')
+    }
+
+    const user = await this.findOne({ email })
+
+    if (!user) {
+        throw Error("Wrong email or password")
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+
+    if (!match) {
+        throw Error("Wrong email or password")
+    }
+
+    return user
 }
 
 module.exports = mongoose.model('User', userSchema);

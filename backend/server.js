@@ -69,8 +69,8 @@ mongoose.connect(process.env.MONGO_URI)
 // Put your functions down here: ------------------------------------------------------------------
 
 // Routes
-app.use('/reviews', reviewRoutes); // makes it so this only fires when the url looks like /cafes
-app.use('/user', userRoutes);
+app.use('/api/reviews', reviewRoutes); // makes it so this only fires when the url looks like /cafes
+app.use('/api/user', userRoutes);
 //app.use(reviewRoutes);
 
 
