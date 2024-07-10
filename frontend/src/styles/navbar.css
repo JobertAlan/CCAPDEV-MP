@@ -118,12 +118,10 @@ nav {
 }
 
 #button-container {
-    margin-right: 14.5%;
+    margin-right: 12%;
+    margin-left: auto;
 }
 
-#button-container a {
-    padding: 10px;
-}
 
 #button-container button:hover {
     transition: 0.25s;
@@ -139,4 +137,9 @@ nav {
     text-decoration: none;
     font-size: 18px;
     border-radius: 5px;
+    margin-left: 5px;
+}
+
+#button-container .user {
+    font-size: 15px;
 }

@@ -9,6 +9,8 @@ const createToken = (id) => {
 }
 
 
+
+
 // Get all users
 const getUsers = async (req, res) => {
     const users = await User.find({});

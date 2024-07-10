@@ -18,21 +18,6 @@ const Signup = () => {
     }
 
     return (
-        // <form className="signup" onSubmit={handleSubmit}>
-        //     <h3>Sign up</h3>
-
-        //     <label>Email: </label> <input type='email' onChange={(e) => setEmail(e.target.value)} value={email}/> 
-
-        //     <label>Password: </label> <input type='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
-
-        //     <label>First Name: </label> <input type='text' onChange={(e) => setFname(e.target.value)} value={firstName}/> 
-
-        //     <label>Last Name: </label> <input type='text' onChange={(e) => setLname(e.target.value)} value={lastName}/>
-
-        //     <button disabled={isLoading}>Sign Up</button> 
-        //     {error && <div className='error'>{error}</div>}
-        // </form>
-
         <div className="formsignup">
                 <div className="form-content">
                     <header>Signup</header>

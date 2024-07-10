@@ -47,8 +47,8 @@ const Navbar = () => {
 
                         {user && (
                             <div id="button-container">
-                                <Link to='/'><button><i className="fa fa-sign-in"></i> Start Cooking</button></Link>
-                                <Link to='/'><button><i className="fa fa-pencil"></i> Stop Cooking</button></Link>
+                                <button className='user'><i className="fa fa-blind"></i>User: {user.email}</button>
+                                <button onClick={handleSignOut}><i className="fa fa-pencil"></i> Stop Cooking</button>
                             </div>
                         )}
 

@@ -68,3 +68,11 @@ form .field {
 .form-link a:hover {
     text-decoration: underline;
 }
+
+.form-content {
+    align-items: center;
+}
+
+.error {
+    border: auto;
+}

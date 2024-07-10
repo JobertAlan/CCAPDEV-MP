@@ -45,7 +45,7 @@ const userSchema = new Schema({
 });
 
 // Signup method
-userSchema.statics.signup = async function (email, password, firstName, lastName, isOwner) {
+userSchema.statics.signup = async function (email, password, firstName, lastName) {
     
     // Field Validation
     if (!validator.isStrongPassword(password)) {
@@ -62,7 +62,7 @@ userSchema.statics.signup = async function (email, password, firstName, lastName
     const asin = await bcrypt.genSalt(5)
     const hash = await bcrypt.hash(password, asin)
 
-    const user = await this.create({ email, password: hash, firstName, lastName, isOwner })
+    const user = await this.create({ email, password: hash, firstName, lastName })
 
     return user
 
