@@ -6,7 +6,6 @@ const UserForm = () => {
     const [lastName, setLname] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPword] = useState('')
-    const [isOwner, setOwner] = useState('')
     
     return (
         <form className="create">

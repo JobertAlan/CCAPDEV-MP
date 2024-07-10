@@ -8,6 +8,9 @@ const {
     deleteCafe,
     updateCafe
 } = require('../controllers/cafeController');
+// const requireAuth = require('../middleware/requireAuth')
+
+// router.use(requireAuth)
 
 // Creates an instance of the route for us
 const router = express.Router();
