@@ -11,7 +11,10 @@ const requireAuth = async (req, res, next) => {
     }
 
     // User token
+    // Before with email in json object
     const token = authorization.split(' ')[1]
+
+    
 
     try {
 

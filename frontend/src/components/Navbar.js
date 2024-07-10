@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div id="nav-logo-search">
                     <div id="nav-logo-search-container">
                         <div id="logo-container">
-                            <a href="/" id="logo-anchor"><img src='/assets/images/ph-logo-small.png'/><h1>Yappuccino</h1></a>
+                            <a href="/" id="logo-anchor"><img src='/assets/images/ph-logo-small.png' alt='picture-of-logo'/><h1>Yappuccino</h1></a>
                         </div>
                         <div id="search-container">
                             <form>
@@ -47,8 +47,9 @@ const Navbar = () => {
 
                         {user && (
                             <div id="button-container">
-                                <button className='user'><i className="fa fa-blind"></i>User: {user.email}</button>
+                                <Link to='/profile'><button className='user'><i className="fa fa-blind"></i>User: {user.email}</button></Link>
                                 <button onClick={handleSignOut}><i className="fa fa-pencil"></i> Stop Cooking</button>
+                                
                             </div>
                         )}
 
@@ -63,7 +64,10 @@ const Navbar = () => {
                             
                     </nav>
                 </div>
-                    </header>
+                
+            </header>
+
+            
     )
 }
 

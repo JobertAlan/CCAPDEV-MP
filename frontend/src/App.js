@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Signup from './pages/Signup'
 import Signin from './pages/Signin'
+import Profile from './pages/Profile'
 
 
 
@@ -21,7 +22,7 @@ function App() {
           <Routes>
             <Route 
               path='/'
-              element={user ? <Home /> : <Navigate to='/signin' />}
+              element={user ? <Home /> : <Navigate to='/' />}
             />
 
               <Route 
@@ -32,6 +33,10 @@ function App() {
               <Route 
               path='/signup'
               element={!user ? <Signup /> : <Navigate to='/' />}
+            />
+            <Route 
+              path='/profile'
+              element={user ? <Profile /> : <Navigate to='/' />}
             />
           </Routes>
         </div>

@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-// Import from components folder
 
-
+// Import from components 
+import { getUserId } from '../util/getUserId'
 
 const Home = () => {
     const { user } = useAuthContext()
 
+     const userId = getUserId(user.token)
+
+    //  const token = user.token
+    //  const decodedToken = decodeToken(token)
+    //  const userId = decodedToken._id
+
+    // This connects to the db and returns all user information
     // const [users, setUsers] = useState(null)
 
     // useEffect(() => {
@@ -23,11 +30,11 @@ const Home = () => {
     //     fetchUsers()
     // }, [])
 
-
     
+
     return(
         <div className="home">
-                
+            
         </div>
     )
 }
