@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useSignout } from '../hooks/useSignout'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 // css import
 import '../styles/navbar.css'
@@ -9,6 +10,7 @@ import '../styles/navbar.css'
 const Navbar = () => {
 
     const { signout } = useSignout()
+    const { user } = useAuthContext()
 
     const handleSignOut = () => {   // Logic that is applied to an onClick on a button to log a user out
         signout()
@@ -17,23 +19,17 @@ const Navbar = () => {
 
     return (
         <header>
-            {/* <div className="container">
-                <Link to="/">
-                    <h2>Cafe review site</h2>
-                </Link>
-            </div> */}
-
             {/* <!-- Top bar containing Logo + search --> */}
                 <div id="nav-logo-search">
                     <div id="nav-logo-search-container">
                         <div id="logo-container">
-                            <a href="index" id="logo-anchor"><img src={`./assets/images/ph-logo.jpg`}/><h1>Yappuccino</h1></a>
+                            <a href="/" id="logo-anchor"><img src='/assets/images/ph-logo-small.png'/><h1>Yappuccino</h1></a>
                         </div>
                         <div id="search-container">
                             <form>
                                 <div id="search-bar">
-                                    <span class="material-symbols-outlined">Search</span>
-                                    <input class="search-input" type="search" placeholder="Vibe check" />
+                                    <span className="material-symbols-outlined">Search</span>
+                                    <input className="search-input" type="search" placeholder="Vibe check" />
                                 </div>
                             </form>
                         </div>
@@ -42,14 +38,29 @@ const Navbar = () => {
                     {/* <!-- Bottom nav containing links --> */}
                     <nav>
                         <div id="nav-links">
-                            <a href="index"><i class="fa fa-home"></i> Home</a>
-                            <a href="cafe"><i class="fa fa-search"></i> Cafés</a>
-                            {/* <!-- <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a> --> */}
+                            <a href="/"><i className="fa fa-home"></i> Home</a>
+                            <a href="/"><i className="fa fa-search"></i> Cafés</a>
+                            {/* <!-- <a href="#Reviews"><i className="fa fa-coffee"></i> Reviews</a> --> */}
                         </div>
-                        <div id="button-container">
-                            <a href=""><button><i class="fa fa-pencil" aria-hidden="true"></i> Glaze a Café</button></a>
-                            <a href="login"><button><i class="fa fa-sign-in"></i> Start Yapping</button></a>
-                        </div>
+
+                        {/* <button><i className="fa fa-pencil" aria-hidden="true"></i> Glaze a Café</button> */}
+
+                        {user && (
+                            <div id="button-container">
+                                <Link to='/'><button><i className="fa fa-sign-in"></i> Start Cooking</button></Link>
+                                <Link to='/'><button><i className="fa fa-pencil"></i> Stop Cooking</button></Link>
+                            </div>
+                        )}
+
+                        {!user && (
+                            <div id="button-container">
+                                <Link to='/signup'><button><i className="fa fa-sign-in"></i> Start Cooking</button></Link>
+                                <Link to='/signin'><button><i className="fa fa-cutlery"></i> Keep Cooking</button></Link>
+                            </div>
+                        )}
+
+                        
+                            
                     </nav>
                 </div>
                     </header>

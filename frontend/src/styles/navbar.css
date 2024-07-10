@@ -1,9 +1,12 @@
+@import "reset.css";
+
 /* Container for the entire navigation bar */
 #nav-logo-search {
     display: flex;
     flex-direction: column;
     background-color: #967259;
     overflow: visible;
+    margin-bottom: 50px;
 }
 
 #nav-logo-search-container {
@@ -32,9 +35,10 @@
 }
 
 #logo-anchor img{
+    margin-top: 25%;
     clip-path: circle();
-    height: auto;
-    width: 35%;
+    height: 100px;
+    width: auto;
 }
 
 
@@ -42,6 +46,7 @@
 
 #search-container {
     align-self: center;
+    margin-left: auto;
     margin-right: 12.75%;
 }
 

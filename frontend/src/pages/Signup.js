@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useSignup } from '../hooks/useSignup'
 
+import '../styles/loginsignup.css'
+
 const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -16,20 +18,54 @@ const Signup = () => {
     }
 
     return (
-        <form className="signup" onSubmit={handleSubmit}>
-            <h3>Sign up</h3>
+        // <form className="signup" onSubmit={handleSubmit}>
+        //     <h3>Sign up</h3>
 
-            <label>Email: </label> <input type='email' onChange={(e) => setEmail(e.target.value)} value={email}/> 
+        //     <label>Email: </label> <input type='email' onChange={(e) => setEmail(e.target.value)} value={email}/> 
 
-            <label>Password: </label> <input type='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
+        //     <label>Password: </label> <input type='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
 
-            <label>First Name: </label> <input type='text' onChange={(e) => setFname(e.target.value)} value={firstName}/> 
+        //     <label>First Name: </label> <input type='text' onChange={(e) => setFname(e.target.value)} value={firstName}/> 
 
-            <label>Last Name: </label> <input type='text' onChange={(e) => setLname(e.target.value)} value={lastName}/>
+        //     <label>Last Name: </label> <input type='text' onChange={(e) => setLname(e.target.value)} value={lastName}/>
 
-            <button disabled={isLoading}>Sign Up</button> 
-            {error && <div className='error'>{error}</div>}
-        </form>
+        //     <button disabled={isLoading}>Sign Up</button> 
+        //     {error && <div className='error'>{error}</div>}
+        // </form>
+
+        <div className="formsignup">
+                <div className="form-content">
+                    <header>Signup</header>
+
+                    <form className="signup" onSubmit={handleSubmit}>
+                        <div className="field input">
+                            <input type="email" placeholder="Email" className="input" onChange={(e) => setEmail(e.target.value)} value={email} />
+                        </div>
+
+                        <div className="field input">
+                            <input type="password" placeholder="Password" className="input" onChange={(e) => setPassword(e.target.value)} value={password} />
+                        </div>
+
+                        <div className='field input'>
+                            <input type="text" placeholder="First Name" className="input" onChange={(e) => setFname(e.target.value)} value={firstName} />
+                        </div>
+
+                        <div className='field input'>
+                            <input type="text" placeholder="Last Name" className="input" onChange={(e) => setLname(e.target.value)} value={lastName} />
+                        </div>
+
+
+                        <div className="field button">
+                            <button disabled={isLoading}>Signup</button>
+                        </div>
+
+                        <div className="form-link">
+                            <span>Already have an account? <a href="/signin" className="signin">Signin</a></span>
+                        </div>
+                        {error && <div className='error'>{error}</div>}
+                    </form>
+                </div>
+            </div>
     )
 }
 

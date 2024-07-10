@@ -1,32 +1,33 @@
 import { useEffect, useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 // Import from components folder
-import UserDetails from '../components/UserDetails'
+
 
 
 const Home = () => {
-    const [users, setUsers] = useState(null)
+    const { user } = useAuthContext()
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const response = await fetch('/api/user')
-            const json = await response.json()
+    // const [users, setUsers] = useState(null)
 
-            if (response.ok) {
-                setUsers(json)
-            }
-        }
+    // useEffect(() => {
+    //     const fetchUsers = async () => {
+    //         const response = await fetch('/api/user')
+    //         const json = await response.json()
 
-        fetchUsers()
-    }, [])
+    //         if (response.ok) {
+    //             setUsers(json)
+    //         }
+    //     }
+
+    //     fetchUsers()
+    // }, [])
+
+
     
     return(
         <div className="home">
-            <div className='users'>
-                {users && users.map((user) => (
-                    <UserDetails key={user._id} user={user} />
-                ))}
-            </div>
+                
         </div>
     )
 }
