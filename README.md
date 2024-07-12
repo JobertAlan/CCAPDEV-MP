@@ -28,7 +28,8 @@ Pre-requisite: Install Node.js v.20.14.0
 # Minor notes:
 - Forgot to implement not being able to add a cafe if you already have one as an owner, oops
 - Ah yeah I think we bit off more than we can chew using react so we had to revert back to basic jquery hbs
-- as a result some pages/css might not be working to its fullest but we'll work on it promise hehe
+    - as a result some pages/css might not be working to its fullest but we'll work on it promise hehe
+    - that and i'm pretty sure there's a bunch of files in here that don't do anything *yet* or *ever*
 - It should just automatically connect to the mongodb in atlas
     - Not putting .env in the .gitignore file or else we won't be able to access the db
 - Check the acc creds.txt file for sample users to login with
