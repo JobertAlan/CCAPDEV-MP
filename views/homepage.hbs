@@ -17,14 +17,16 @@
     <!-- Change this for different css files in the future -->
     <link rel="stylesheet" type="text/css" media="all" href="./styles/index.css">
 
-    <title>Document</title>
+    <link rel="icon" href="./images/ph-logo.ico" />
+
+    <title>Yappuccino</title>
 </head>
 <body>
     <!-- Top bar containing Logo + search -->
     <div id="nav-logo-search">
         <div id="nav-logo-search-container">
             <div id="logo-container">
-                <a href="index.html" id="logo-anchor"><img src="./images/ph-logo.jpg"/><h1>Yappuccino</h1></a>
+                <a href="/" id="logo-anchor"><img src="./images/ph-logo.jpg"/><h1>Yappuccino</h1></a>
             </div>
             <div id="search-container">
                 <form>
@@ -39,13 +41,13 @@
         <!-- Bottom nav containing links -->
         <nav>
             <div id="nav-links">
-                <a href="index.html"><i class="fa fa-home"></i> Home</a>
-                <a href="cafe.html"><i class="fa fa-search"></i> Cafés</a>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+                <a href="/cafe/browse"><i class="fa fa-search"></i> Cafés</a>
                 <!-- <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a> -->
             </div>
             <div id="button-container">
-                <a href=""><button><i class="fa fa-pencil" aria-hidden="true"></i> Glaze a Café</button></a>
-                <a href="login.html"><button><i class="fa fa-sign-in"></i> Start Yapping</button></a>
+                <a href="/profile"><button><i class="fa fa-fire" aria-hidden="true"></i> {{userData.email}}</button></a>
+                <a href="/logout"><button><i class="fa fa-sign-in"></i> Stop Cooking</button></a>
             </div>
         </nav>
     </div>

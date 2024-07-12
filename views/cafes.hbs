@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- HTML Elements -->
+        <!-- This is used to give a magnifying glass icon to search buttons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Change this for different css files in the future -->
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/cafe.css">
+
+    <link rel="icon" href="./images/ph-logo.ico" />
+
+    <title>Yappuccino</title>
+</head>
+<body>
+
+    <!-- Top bar containing Logo + search -->
+    <div id="nav-logo-search">
+        <div id="nav-logo-search-container">
+            <div id="logo-container">
+                <a href="/" id="logo-anchor"><img src="/images/ph-logo.jpg"/><h1>Yappuccino</h1></a>
+            </div>
+            <div id="search-container">
+                <form>
+                    <div id="search-bar">
+                        <span class="material-symbols-outlined">Search</span>
+                        <input class="search-input" type="search" placeholder="Vibe check">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom nav containing links -->
+        <nav>
+            <div id="nav-links">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+                <a href="/cafe/browse"><i class="fa fa-search"></i> Cafés</a>
+                <!-- <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a> -->
+            </div>
+            <div id="button-container">
+                <a href=""><button><i class="fa fa-fire" aria-hidden="true"></i><i class="fa fa-fire" aria-hidden="true"></i> Glaze Café</button></a>
+                <a href="/logout"><button><i class="fa fa-sign-in"></i> Stop Cooking</button></a>
+            </div>
+        </nav>
+    </div>
+
+  
+
+
+    <!-- Reviews -->
+
+    <!-- 8 by the street cafe -->
+    <div class="container">
+
+        <!--Cafecontainer will be the to be duplicated-->
+        {{#each cafes}}
+        <div class="cafecontainer">
+            <!--seperate Link that will go through the cafe stuff-->
+            <div class="imgContainer">
+                <a href ="8bythestreet-review.html" class ="clickcafe">
+                    <img id="8bythestreet-img" src="images/review/8_by_the_street_review-400w.png" alt=""> 
+                </a>
+            </div>
+
+            <h1 class = "title"> {{this.name}}</h1>
+            <hr>
+            
+
+            
+
+            <!--The review stuff, should modify the ratings, number of reviews and the overall score-->
+            <div class ="reviewcontainer">
+                <div class ="score">
+                    <h4>Amazing</h4> <!--Modify the word here -->
+                    <p><span id="numReview">122</span> People have reviewed</p> <!--Modify the amount of people in the span-->
+                </div>
+                <div class = scorebox><h1 id="scorenumber 1">100</h1></div> <!--Modify the score here-->
+            </div>
+
+            <hr>
+
+            <!--And the synposis of the cafe, should limit the amount of characters placed here in javascript or smth as it kinda screws over the css-->
+            <!--Add more characters or words to see what I mean-->
+            <div class = "synposis"> <p>On the surface, the cafe appeared innocent, plain, and pleasant. However, at its heart, it was also an organization of ghouls from the 20th ward.</p></div>
+        </div>
+        {{/each}}
+
+
+
+    </div>
+</body>
+</html>

@@ -22,13 +22,13 @@
                 <div class ="form-content">
                     <header>Login</header>
 
-                    <form action="#">
+                    <form action="/login" method="post">
                         <div class="field input">
-                            <input type="email" placeholder="Email" class="input">
+                            <input type="email" placeholder="Email" class="input" name="email">
                         </div>
 
                         <div class="field input">
-                            <input type="password" placeholder="Password" class="input">
+                            <input type="password" placeholder="Password" class="input" name="password">
                         </div>
 
                         <div class="form-link">
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-link">
-                            <span>Don't have an account? <a href="signup.html" class="signup">Signup</a></span>
+                            <span>Don't have an account? <a href="/signup" class="signup">Signup</a></span>
                         </div>
                     </form>
                 </div>

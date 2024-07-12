@@ -3,7 +3,7 @@ acc:
 velasryan@gmail.com
 superSecret1!
 
-jobert_velasco@dlsu.edu.ph
+jobert_velasco@dlsu.edu.ph  <-- Currently the only owner of a cafe 
 pyschoTeddy2!
 
 notcrossfireron@gmail.com
@@ -14,3 +14,6 @@ ono@gmail.com
 
 trebis@dlsu.edu.ph
 iLove4irsoft!
+
+peppy@mail.com
+strongPassword!1
