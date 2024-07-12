@@ -23,7 +23,7 @@ Installing npm packages cont. (frontend):
     - or opening the backend folder through explorer, right clicking, and then clicking open terminal here.
       
 2. Use the command below to install all packages:
-   ``` "npm install react-scripts@latest react-jwt" ```
+   ``` "npm install react-scripts@latest react-jwt axios" ```
 
 
 ## Usage:
