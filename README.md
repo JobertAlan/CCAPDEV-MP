@@ -18,7 +18,12 @@ Pre-requisite: Install Node.js v.20.14.0
 
 Installing npm packages cont. (frontend):
 
-1. Don't actually.
+1. CD into /frontend folder
+     - You can do this by by opening your terminal in vscode and "cd backend"
+    - or opening the backend folder through explorer, right clicking, and then clicking open terminal here.
+      
+2. Use the command below to install all packages:
+   ``` "npm install react-scripts@latest react-jwt" ```
 
 
 ## Usage:
