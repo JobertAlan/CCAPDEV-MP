@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import $ from 'jquery';
+
 import App from './App';
+
+import './index.css';
+
 
 // Import contexts
 import { GetAuthContext } from './context/AuthContext'
