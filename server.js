@@ -125,11 +125,13 @@ app.post('/login', express.urlencoded({ extended: true }), async (req, res) => {
         res.send("Invalid credentials. <a href='/login'>Please try again.");
     }
 
-    req.session.user = user
-    res.cookie("sessionId", req.sessionID)
+    else {
+        req.session.user = user
+        res.cookie("sessionId", req.sessionID)
 
-    res.redirect('/profile')
-
+        res.redirect('/profile')
+    }
+    
 })
 
 
