@@ -1,0 +1,42 @@
+<!-- Top bar containing Logo + search -->
+    <div id="nav-logo-search">
+        <div id="nav-logo-search-container">
+            <div id="logo-container">
+                <a href="/" id="logo-anchor"><img src="/images/ph-logo.jpg"/><h1>Yappuccino</h1></a>
+            </div>
+            <div id="search-container">
+                <form>
+                    <div id="search-bar">
+                        <span class="material-symbols-outlined">Search</span>
+                        <input class="search-input" type="search" placeholder="Vibe check">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom nav containing links -->
+        <nav>
+            <div id="nav-links">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+                <a href="/cafe/browse"><i class="fa fa-search"></i> Cafés</a>
+                <!-- <a href="#Reviews"><i class="fa fa-coffee"></i> Reviews</a> -->
+            </div>
+            <div id="button-container">
+
+                {{#unless userData }}
+
+                    <a href="/signup"><button><i class="fa fa-fire" aria-hidden="true"></i><i class="fa fa-fire" aria-hidden="true"></i> Start Cooking</button></a>
+                    <a href="/login"><button><i class="fa fa-sign-in"></i> Keep Cooking</button></a>
+
+
+                {{/unless}}
+
+                {{#if userData }}
+
+                    <a href="/profile"><button><i class="fa fa-fire" aria-hidden="true"></i><i class="fa fa-fire" aria-hidden="true"></i>{{userData.email}}</button></a>
+                    <a href="/logout"><button><i class="fa fa-sign-in"></i> Stop Cooking</button></a>
+                    
+                {{/if}}
+            </div>
+        </nav>
+    </div>

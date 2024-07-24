@@ -34,8 +34,16 @@ app.use((req, res, next1) => {
 app.use(express.json());
 app.use(express.urlencoded( {extended: true}))
 app.use(cookieParser());
+
+
+// Handlebar engine settings
+const expbs = require('express-handlebars')
 const hbs = require('hbs')
 app.set('view engine', 'hbs')
+app.engine('hbs', expbs.engine({ 
+    extname: '.hbs', 
+    defaultLayout: 'main'
+ }))
 
 // to allow file uploads
 const fileUpload = require('express-fileupload');
@@ -80,24 +88,21 @@ const isAuthenticated = (req, res, next) => {
         res.redirect('/login')
     }
 }
-// Use nodemon "server.js" so that it re-runs the application whenever it detects changes in the project; similar to using the liveServer extension in VsCode
-// Cancel it by doing Ctrl + C
 
-// Alternatively, use "npm run dev" to do the exact same thing as above ^^ 
-// This is because I added a "dev: 'nodemon server.js'" line in the package.json file
+
 
 // Put your functions down here: ------------------------------------------------------------------
-
 
 // Routes + Controllers
 
 app.get('/', (req, res) => {
     if (req.session.user) {
         const userData = req.session.user;
-        res.render('homepage', {userData})
+        res.render('index', {userData})
     }
     else {
-        res.sendFile(__dirname + '/public/html/index.html')
+        // res.sendFile(__dirname + '/public/html/index.html')
+        res.render('index')
     }
 })
 
@@ -191,7 +196,7 @@ app.get('/profile', isAuthenticated, (req, res) => {
 
 // Get all cafes regardless of user session
 app.get('/cafe/browse', async (req, res) => {
-    const cafes = await Cafe.find({})
+    const cafes = await Cafe.find({}).lean()
     console.log(cafes)
     res.render('cafes', {cafes})
 }) 
@@ -199,9 +204,6 @@ app.get('/cafe/browse', async (req, res) => {
 app.post('/profile/postcafe', isAuthenticated, async (req, res) => {
     const { name, description} = req.body
     const ownedBy = req.session.user._id
-
-
-
 
     if (!name || !description) {
         res.send("Field needed. <a href='/profile'>Try again.</a>")
