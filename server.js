@@ -57,6 +57,12 @@ app.engine('hbs', expbs.engine({
         toLocale: function (date) {
             // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
             return date.toLocaleString();
+        },
+        ifEquals: function(string1, string2, options) {
+            if (string1 === string2) {
+                return options.fn(this)
+            }
+            return options.inverse(this)
         }
     }
  }))
@@ -274,7 +280,7 @@ app.get('/cafe/search', async (req, res) => {
 
 app.get('/cafe/:id', async (req, res) => {
 
-    const currUser = req.session.user
+    const userData = req.session.user
 
     const cafeId = req.params.id
 
@@ -286,14 +292,16 @@ app.get('/cafe/:id', async (req, res) => {
         const user = await User.findById(review.postedBy, 'firstName').lean()
         return {
             ...review,
-            firstName: user ? user.firstName : 'Cannot find name'
+            firstName: user ? user.firstName : 'Cannot find name',
+            currUserId: userData ? userData._id : false,
+            cafeOwner: cafe ? cafe.ownedBy : 'cant find owner'
         }
     }))
 
-    
+    // console.log('Cafe id & current userId: ', cafe.ownedBy, userData)
 
     if (cafe) {
-        res.render('cafe', {cafe, reviews: reviewUserData, currUser } )
+        res.render('cafe', {cafe, reviews: reviewUserData, userData } )
     }
     else {
         res.status(404).send('cafe not found')

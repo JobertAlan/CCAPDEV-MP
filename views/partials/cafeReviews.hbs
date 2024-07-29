@@ -1,4 +1,6 @@
 
+<p>{{userData.isOwner}}</p>
+
 
 
 {{#each reviews }}
@@ -21,9 +23,44 @@
                 <div class="voteButtonContainer">
                     <h3>️‍🔥 {{this.upvotes}}</h3> <button>Updoot</button>
                 </div>
+
+                {{#if this.ownerReply}}
+
+                    <div class="ownerReplyContainer">
+                        <p>{{this.ownerReply}}</p>
+                    </div>
+                
+                {{/if}}
+
+
+                {{log 'this' this}}
+
+                
+                {{#ifEquals this.currUserId this.cafeOwner }}
+                    <div id="ownerReply">
+                        <form action="" method="post">
+                            <label>Reply: </label>
+                            <input type="text" name="ownerReply" />
+
+                            <input type="submit" value="Send Reply">
+                        </form>
+                    </div>
+                {{/ifEquals}}
+                
+             
+                
+
+
             </div>
     </div>
 
     <br>
 
 {{/each}}
+
+
+<script>
+
+    
+    
+</script>

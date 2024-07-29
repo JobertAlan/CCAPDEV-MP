@@ -17,9 +17,11 @@
     </div>
 
 
-    {{#if currUser}}
+    {{#if userData }}
         <!-- Review Buttons -->
-        <div class="reviewButtonContainer">
+        {{#unless userData.isOwner }}
+
+            <div class="reviewButtonContainer">
 
             <form action="/cafe/{{cafe._id}}/postreview" method="post">
                 <label>Review Title: </label>
@@ -51,6 +53,8 @@
         </form>
             
         </div>
+
+        {{/unless}}
     {{/if}}
 
     <hr>
