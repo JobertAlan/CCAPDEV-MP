@@ -16,26 +16,42 @@
         <p>{{cafe.description}}</p>
     </div>
 
-    <!-- Review Buttons -->
-    <div class="reviewButtonContainer">
 
-        <form action="/cafe/{{cafe._id}}/postreview" method="post">
+    {{#if currUser}}
+        <!-- Review Buttons -->
+        <div class="reviewButtonContainer">
+
+            <form action="/cafe/{{cafe._id}}/postreview" method="post">
+                <label>Review Title: </label>
+                <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
+
+                <label>Review Description: </label><br>
+                <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
+
+                <label>Give a rating: </label><br>
+                <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
+
+                <button type="submit">✍️ Write a Review</button>
+            </form>
+
+        <form action="/cafe/{{cafe._id}}/patchreview" method="post">
+            
             <label>Review Title: </label>
-            <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
+                <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
 
-            <label>Review Description: </label><br>
-            <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
+                <label>Review Description: </label><br>
+                <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
 
-            <label>Give a rating: </label><br>
-            <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
-
-            <input type="submit" value="✍️ Write a Review"/>
+                <label>Give a rating: </label><br>
+                <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
+            
+            <button type="submit" id="editButton">
+                ☝ Edit Your Review
+            </button>
         </form>
-
-        <button>
-            ☝ Edit Your Review
-        </button>
-    </div>
+            
+        </div>
+    {{/if}}
 
     <hr>
 

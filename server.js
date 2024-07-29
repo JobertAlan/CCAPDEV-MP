@@ -273,6 +273,9 @@ app.get('/cafe/search', async (req, res) => {
 })
 
 app.get('/cafe/:id', async (req, res) => {
+
+    const currUser = req.session.user
+
     const cafeId = req.params.id
 
     const cafe = await Cafe.findById(cafeId).lean()
@@ -290,7 +293,7 @@ app.get('/cafe/:id', async (req, res) => {
     
 
     if (cafe) {
-        res.render('cafe', {cafe, reviews: reviewUserData } )
+        res.render('cafe', {cafe, reviews: reviewUserData, currUser } )
     }
     else {
         res.status(404).send('cafe not found')
@@ -327,12 +330,47 @@ app.post('/cafe/:id/postreview', isAuthenticated, async (req, res) => {
         res.redirect(`/cafe/${cafeReviewed}`)
     }
 
-    const review = await Review.create({ 
-        title: reviewTitle, 
-        description: reviewDescription, 
-        rating: reviewRating,
-        postedBy: reviewedBy,
-        cafeReviewed: cafeReviewed })
-    
+    let hasReview = await Review.findOne({}).select({reviewedBy: reviewedBy, cafeReviewed: cafeReviewed })
+
+    if (!hasReview) {
+        const review = await Review.create({ 
+            title: reviewTitle, 
+            description: reviewDescription, 
+            rating: reviewRating,
+            postedBy: reviewedBy,
+            cafeReviewed: cafeReviewed })
+    }
+
+    res.redirect(`/cafe/${cafeReviewed}`)
+})
+
+// Jank edit method
+app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
+
+    const userData = req.session.user
+
+    const { reviewTitle, reviewDescription, reviewRating } = req.body
+    // const reviewedBy = req.session.user._id
+    const cafeReviewed = req.params.id
+
+    let currentDate = new Date().toISOString();
+
+    if (!reviewTitle || !reviewDescription || !reviewRating) {
+        res.redirect(`/cafe/${cafeReviewed}`)
+    }
+
+    let hasReview = await Review.findOne({}).select({reviewedBy: userData._id, cafeReviewed: cafeReviewed })
+
+    if (hasReview) {
+        const review = await Review.findByIdAndUpdate(hasReview._id, {
+            title: reviewTitle,
+            description: reviewDescription,
+            rating: reviewRating,
+            editedOn: currentDate
+        })
+    }
+
+
+
     res.redirect(`/cafe/${cafeReviewed}`)
 })
