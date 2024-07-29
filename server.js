@@ -42,7 +42,18 @@ const hbs = require('hbs')
 app.set('view engine', 'hbs')
 app.engine('hbs', expbs.engine({ 
     extname: '.hbs', 
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: {
+        // Customer helpers 
+        truncate: function (text, length, ending) {
+            if (text.length > length) {
+                return text.substring(0, length) + (ending || '...')
+            }
+            else {
+                return text
+            }
+        }
+    }
  }))
 
 // to allow file uploads
@@ -118,16 +129,28 @@ app.get('/login', (req, res) => {
 app.post('/login', express.urlencoded({ extended: true }), async (req, res) => {
     const { email, password } = req.body
 
+    
+    if (!email || !password) {
+        // res.send("Invalid credentials. <a href='/login'>Please try again.");
+        res.status(400).send("Invalid credentials. <a href='/login'>Please try again.");
+        return;
+    }
+
     const user = await User.findOne({ email })
 
     if (user === null) {
-        res.send("Invalid credentials. <a href='/login'>Please try again.");
+        // res.send("Invalid credentials. <a href='/login'>Please try again.");
+        res.status(400).send("Invalid credentials. <a href='/login'>Please try again.");
+        return;
+        
     }
 
     const match = await bcrypt.compare(password, user.password)
 
     if (!match) {
-        res.send("Invalid credentials. <a href='/login'>Please try again.");
+        // res.send("Invalid credentials. <a href='/login'>Please try again.");
+        res.status(400).send("Invalid credentials. <a href='/login'>Please try again.");
+        return;
     }
 
     else {
@@ -185,22 +208,81 @@ app.get('/logout', (req, res) => {
     })
 })
 
+
+
 // Profile
-app.get('/profile', isAuthenticated, (req, res) => {
+app.get('/profile', isAuthenticated, async (req, res) => {
     const userData = req.session.user
-    console.log(userData)
-    res.render('profile', {userData})
+    // console.log(userData)
+
+    let hasCafe = await Cafe.findOne({}).select({ownedBy: userData._id})
+
+    let context = {
+        userData,
+        hasCafe
+    }
+
+
+    res.render('profile', context)
 })
 
 // Cafe Logic
 
 // Get all cafes regardless of user session
 app.get('/cafe/browse', async (req, res) => {
+
+    const userData = req.session.user
+
     const cafes = await Cafe.find({}).lean()
-    console.log(cafes)
-    res.render('cafes', {cafes})
+    //console.log(cafes)
+
+    const context = {
+        userData,
+        cafes
+    }
+
+    res.render('cafes', context)
 }) 
 
+app.get('/cafe/search', async (req, res) => {
+    
+    const cafeName = req.query.search.trim().toLowerCase();
+
+    try {
+        const cafe = await Cafe.findOne({ name: new RegExp(`^${cafeName}$`, 'i') }).lean() // Case-insensitive search
+
+        if (cafe) {
+            res.redirect(`/cafe/${cafe._id}`);
+        } 
+        else {
+            // res.status(404).render('error', { message: 'Cafe not found' });
+            res.redirect('/')
+        }
+    } 
+    catch (err) {
+        console.error('Error finding cafe:', err);
+        // res.status(500).render('error', { message: 'Internal server error' });
+        res.redirect('/')
+    }
+
+})
+
+app.get('/cafe/:id', async (req, res) => {
+    const cafeId = req.params.id
+
+    const cafe = await Cafe.findById(cafeId).lean()
+
+    //console.log('this is the cafeId: ',cafeId)
+
+    if (cafe) {
+        res.render('cafe', {cafe} )
+    }
+    else {
+        res.status(404).send('cafe not found')
+    }
+})
+
+// Make a cafe
 app.post('/profile/postcafe', isAuthenticated, async (req, res) => {
     const { name, description} = req.body
     const ownedBy = req.session.user._id
@@ -209,7 +291,11 @@ app.post('/profile/postcafe', isAuthenticated, async (req, res) => {
         res.send("Field needed. <a href='/profile'>Try again.</a>")
     }
 
-    const cafe = await Cafe.create({ name, description, ownedBy })
+    const hasCafe = await Cafe.findOne({ ownedBy: ownedBy })
+
+    if (!hasCafe) {
+        const cafe = await Cafe.create({ name, description, ownedBy })
+    }
     
     res.redirect('/profile')
 })

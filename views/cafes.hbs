@@ -5,13 +5,6 @@
 </head>
 
 
-    
-
-  
-
-
-    <!-- Reviews -->
-
     <!-- 8 by the street cafe -->
     <div class="container">
 
@@ -20,17 +13,14 @@
         <div class="cafecontainer">
             <!--seperate Link that will go through the cafe stuff-->
             <div class="imgContainer">
-                <a href ="8bythestreet-review.html" class ="clickcafe">
-                    <img id="8bythestreet-img" src="images/review/8_by_the_street_review-400w.png" alt=""> 
+                <a href ="/cafe/{{this._id}}" class ="clickcafe">
+                    <img id="8bythestreet-img" src="images/review/8_by_the_street_review-400w.png" alt="a cafe"> 
                 </a>
             </div>
 
             <h1 class = "title"> {{this.name}}</h1>
             <hr>
             
-
-            
-
             <!--The review stuff, should modify the ratings, number of reviews and the overall score-->
             <div class ="reviewcontainer">
                 <div class ="score">
@@ -44,7 +34,7 @@
 
             <!--And the synposis of the cafe, should limit the amount of characters placed here in javascript or smth as it kinda screws over the css-->
             <!--Add more characters or words to see what I mean-->
-            <div class = "synposis"> <p>On the surface, the cafe appeared innocent, plain, and pleasant. However, at its heart, it was also an organization of ghouls from the 20th ward.</p></div>
+            <div class = "synposis"> <p>{{truncate this.description 100 "..."}}</p></div>
         </div>
         {{/each}}
     </div>

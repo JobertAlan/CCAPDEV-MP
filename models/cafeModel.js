@@ -16,6 +16,9 @@ const cafeSchema = new Schema({
     ownedBy: {
         type: String,
         required: true
+    },
+    bglink: {
+        type: String
     }
 
 });
