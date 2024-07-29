@@ -6,7 +6,7 @@
     height: 400px;
     position: relative;
     background-size: cover;
-    background-image: url("../images/banner/cassalu_banner-1500w.png");
+
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -17,7 +17,7 @@
     height: 400px;
     position: relative;
     background-size: cover;
-    background-image: url("../images/banner/8_by_the_street_banner-1500w.png");
+
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -28,7 +28,7 @@
     height: 400px;
     position: relative;
     background-size: cover;
-    background-image: url("../images/banner/cafe_maxims_banner-1500w.png");
+
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -39,7 +39,7 @@
     height: 400px;
     position: relative;
     background-size: cover;
-    background-image: url("../images/banner/dear_joe_banner-1500w.png");
+
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -50,7 +50,7 @@
     height: 400px;
     position: relative;
     background-size: cover;
-    background-image: url("../images/banner/flight_cafe_banner-1500w.png");
+
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -69,7 +69,7 @@
 }
 
 .reviewCafeNameContainer h1 {
-    color: #ffffff;
+    color: rgb(27, 10, 10);
     font-size: 4em;
     align-self: flex-start;
     font-family: "Helvetica";
@@ -79,7 +79,7 @@
 }
 
 .reviewCafeNameContainer h3 {
-    color: #ffffff;
+    color: rgb(27, 10, 10);
     font-size: 35px;
     align-self: flex-start;
     font-family: "Helvetica";

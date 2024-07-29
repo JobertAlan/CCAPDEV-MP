@@ -18,9 +18,19 @@
 
     <!-- Review Buttons -->
     <div class="reviewButtonContainer">
-        <button>
-            ✍️ Write a Review
-        </button>
+
+        <form action="/cafe/{{cafe._id}}/postreview" method="post">
+            <label>Review Title: </label>
+            <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
+
+            <label>Review Description: </label><br>
+            <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
+
+            <label>Give a rating: </label><br>
+            <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
+
+            <input type="submit" value="✍️ Write a Review"/>
+        </form>
 
         <button>
             ☝ Edit Your Review
@@ -35,23 +45,4 @@
     <h1 class="h1Review">Reviews</h1>
     <br>
 
-    <div class="reviewContentContainer">
-        <div class="reviewPicContainer">
-            <img src="./images/review/cafe_maxims_review-400w.png">
-            <h2>- Gio & Cris B.</h2>
-        </div>
-        <div class="reviewTextContainer">
-            <p class="reviewRating">★★★★☆</p>
-
-            <p class="reviewProper">
-                A good mix of Filipino food and a variety of italian/american food. Their baby back ribs is not that soft compare to other places I’ve been to Manila. 
-                The kare kare is good but also not as tender. The spaghetti is really good since my son really enjoyed it. Their flourless chocolate is divine, 
-                and the mango cheesecake is just ok for my taste. I would recommend this for tourists who wants to enjoy a Filipino delicacy and also have a taste of their
-                 favorite italian/american food. By the way, the espresso is awesome, can’t beat that compare to starbucks.
-            </p>
-
-            <div class="voteButtonContainer">
-                <h3>️‍🔥 0</h3> <button>Updoot</button>
-            </div>
-        </div>
-    </div>
+    {{> cafeReviews }}

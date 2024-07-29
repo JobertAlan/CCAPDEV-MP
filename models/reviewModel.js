@@ -30,7 +30,7 @@ const reviewSchema = new Schema({
         default: Date.now
     },
     postedBy: {
-        type: Schema.Types.ObjectId, ref: 'User'
+        type: String
     },
     cafeReviewed: {
         type: String

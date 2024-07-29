@@ -18,6 +18,7 @@ const validator = require('validator')
 // Models
 const User = require('./models/userModel')
 const Cafe = require('./models/cafeModel')
+const Review = require('./models/reviewModel')
 
 
 
@@ -52,6 +53,10 @@ app.engine('hbs', expbs.engine({
             else {
                 return text
             }
+        },
+        toLocale: function (date) {
+            // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
+            return date.toLocaleString();
         }
     }
  }))
@@ -272,10 +277,20 @@ app.get('/cafe/:id', async (req, res) => {
 
     const cafe = await Cafe.findById(cafeId).lean()
 
-    //console.log('this is the cafeId: ',cafeId)
+    const reviews = await Review.find({cafeReviewed: cafeId}).lean()
+
+    const reviewUserData = await Promise.all(reviews.map(async (review) => {
+        const user = await User.findById(review.postedBy, 'firstName').lean()
+        return {
+            ...review,
+            firstName: user ? user.firstName : 'Cannot find name'
+        }
+    }))
+
+    
 
     if (cafe) {
-        res.render('cafe', {cafe} )
+        res.render('cafe', {cafe, reviews: reviewUserData } )
     }
     else {
         res.status(404).send('cafe not found')
@@ -298,4 +313,26 @@ app.post('/profile/postcafe', isAuthenticated, async (req, res) => {
     }
     
     res.redirect('/profile')
+})
+
+
+// Review Logic
+
+app.post('/cafe/:id/postreview', isAuthenticated, async (req, res) => {
+    const { reviewTitle, reviewDescription, reviewRating } = req.body
+    const reviewedBy = req.session.user._id
+    const cafeReviewed = req.params.id
+
+    if (!reviewTitle || !reviewDescription || !reviewRating) {
+        res.redirect(`/cafe/${cafeReviewed}`)
+    }
+
+    const review = await Review.create({ 
+        title: reviewTitle, 
+        description: reviewDescription, 
+        rating: reviewRating,
+        postedBy: reviewedBy,
+        cafeReviewed: cafeReviewed })
+    
+    res.redirect(`/cafe/${cafeReviewed}`)
 })

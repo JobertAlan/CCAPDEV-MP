@@ -15,7 +15,7 @@
 
             <!-- basic info about user -->
             <div class="user-info">
-                <img src="./images/user-pfp/gioCrisB.png" alt="user_pfp" />
+                <img src='{{userData.picturePath}}' alt="user_pfp" />
                 <h2>{{userData.firstName}}  {{userData.lastName}}</h2>
                 <h3>Email: {{userData.email}}</h3>
                 <hr>
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <!-- stuff on the right -->
+        {{!-- <!-- stuff on the right -->
         <div class="right-cont">
             <h2>Stats</h2>
             <br>
@@ -52,7 +52,7 @@
                     <p>Edits</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- review stuff at the bottom -->
         {{#unless userData.isOwner }}
@@ -99,12 +99,5 @@
 
     </div>
 
-    
 
-<script>
-    
-</script>
-
-</body>
-</html>
 

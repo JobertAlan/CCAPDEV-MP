@@ -1,0 +1,29 @@
+
+
+
+{{#each reviews }}
+
+    <div class="reviewContentContainer">
+            <div class="reviewPicContainer">
+                <img src="./assets/images/review-pic/peppy-review.jpg">
+                
+            </div>
+            <div class="reviewTextContainer">
+                <h2>{{this.firstName}}</h2>
+                <p>Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
+                <p>{{this.title}}</p>
+                <p class="reviewRating">{{this.rating}}</p>
+
+                <p class="reviewProper">
+                    {{this.description}}
+                </p>
+
+                <div class="voteButtonContainer">
+                    <h3>️‍🔥 {{this.upvotes}}</h3> <button>Updoot</button>
+                </div>
+            </div>
+    </div>
+
+    <br>
+
+{{/each}}
