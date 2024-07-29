@@ -338,7 +338,7 @@ app.post('/cafe/:id/postreview', isAuthenticated, async (req, res) => {
         res.redirect(`/cafe/${cafeReviewed}`)
     }
 
-    let hasReview = await Review.findOne({}).select({reviewedBy: reviewedBy, cafeReviewed: cafeReviewed })
+    let hasReview = await Review.findOne({postedBy: reviewedBy, cafeReviewed: cafeReviewed })
 
     if (!hasReview) {
         const review = await Review.create({ 
@@ -367,7 +367,7 @@ app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
         res.redirect(`/cafe/${cafeReviewed}`)
     }
 
-    let hasReview = await Review.findOne({}).select({reviewedBy: userData._id, cafeReviewed: cafeReviewed })
+    let hasReview = await Review.findOne({postedBy: userData._id, cafeReviewed: cafeReviewed })
 
     if (hasReview) {
         const review = await Review.findByIdAndUpdate(hasReview._id, {
