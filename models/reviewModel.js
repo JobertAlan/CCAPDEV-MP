@@ -34,6 +34,9 @@ const reviewSchema = new Schema({
     },
     cafeReviewed: {
         type: String
+    },
+    ownerReply: {
+        type: String
     }
 
 });

@@ -60,25 +60,30 @@
                 <br>
                 <h1 class="h1Review">{{userData.firstName}}'s Reviews</h1>
                 <br>
-                <div class="reviewContentContainer">
 
-                    <div class="reviewPicContainer">
-                        <img src="./images/review/cafe_maxims_review-400w.png">
-                        <h2>- Gio & Cris B.</h2>
+
+                {{#each reviews }}
+                    <div class="reviewContentContainer">
+
+                        <div class="reviewPicContainer">
+                            <img src="./images/review/cafe_maxims_review-400w.png">
+                            
+                        </div>
+
+                        <div class="reviewTextContainer">
+                            <h3>{{this.title}}</h3>
+                            <p class="reviewRating">{{this.rating}}</p>
+
+                            <p class="reviewProper">
+                                {{this.description}}
+                            </p>
+                        </div>
+
                     </div>
+                    <br>
+                {{/each}}
 
-                    <div class="reviewTextContainer">
-                        <p class="reviewRating">★★★★☆</p>
 
-                        <p class="reviewProper">
-                            A good mix of Filipino food and a variety of italian/american food. Their baby back ribs is not that soft compare to other places I’ve been to Manila. 
-                            The kare kare is good but also not as tender. The spaghetti is really good since my son really enjoyed it. Their flourless chocolate is divine, 
-                            and the mango cheesecake is just ok for my taste. I would recommend this for tourists who wants to enjoy a Filipino delicacy and also have a taste of their
-                            favorite italian/american food. By the way, the espresso is awesome, can’t beat that compare to starbucks.
-                        </p>
-                    </div>
-
-                </div>
             </div>
         {{/unless}}
 

@@ -228,9 +228,12 @@ app.get('/profile', isAuthenticated, async (req, res) => {
 
     let hasCafe = await Cafe.findOne({}).select({ownedBy: userData._id})
 
+    let reviews = await Review.find({postedBy: userData._id}).lean()
+
     let context = {
         userData,
-        hasCafe
+        hasCafe,
+        reviews
     }
 
 
@@ -381,4 +384,21 @@ app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
 
 
     res.redirect(`/cafe/${cafeReviewed}`)
+})
+
+
+app.post('/cafe/reply-review/:id', isAuthenticated, async (req, res) => {
+    const { replyBody } = req.body
+
+    const reviewId = req.params.id
+
+    if (!replyBody) {
+        res.redirect(req.get('referer'))
+    }
+
+    const reply = await Review.findByIdAndUpdate(reviewId, {
+        ownerReply: replyBody
+    })
+
+    res.redirect(req.get('referer'))
 })

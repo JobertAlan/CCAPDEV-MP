@@ -20,9 +20,22 @@
                     {{this.description}}
                 </p>
 
-                <div class="voteButtonContainer">
-                    <h3>️‍🔥 {{this.upvotes}}</h3> <button>Updoot</button>
-                </div>
+                <h3>This is the _id of this review: {{this._id}}</h3>
+
+                {{#unless this.currUserId }}
+                    <div class="voteButtonContainer">
+                        <h3>️‍🔥 {{this.upvotes}}</h3>
+                    </div>
+
+                {{/unless }}
+
+                {{#if this.currUserId }}
+                    <div class="voteButtonContainer">
+                        <h3>️‍🔥 {{this.upvotes}}</h3> 
+                        <button>Updoot</button>
+                    </div>
+
+                {{/if}}
 
                 {{#if this.ownerReply}}
 
@@ -38,9 +51,9 @@
                 
                 {{#ifEquals this.currUserId this.cafeOwner }}
                     <div id="ownerReply">
-                        <form action="" method="post">
+                        <form action="/cafe/reply-review/{{this._id}}" method="post">
                             <label>Reply: </label>
-                            <input type="text" name="ownerReply" />
+                            <input type="text" name="replyBody" />
 
                             <input type="submit" value="Send Reply">
                         </form>
