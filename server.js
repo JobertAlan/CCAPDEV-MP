@@ -223,7 +223,10 @@ app.get('/logout', (req, res) => {
 
 // Profile
 app.get('/profile', isAuthenticated, async (req, res) => {
-    const userData = req.session.user
+
+    const userId = req.session.user._id
+
+    const userData = await User.findById(userId).lean()
     // console.log(userData)
 
     let hasCafe = await Cafe.findOne({}).select({ownedBy: userData._id})
@@ -239,6 +242,24 @@ app.get('/profile', isAuthenticated, async (req, res) => {
 
     res.render('profile', context)
 })
+
+app.post('/profile/:id', isAuthenticated, async (req, res) => {
+    const userId = req.params.id
+
+    const { newFname, newLname } = req.body
+
+    if (!newFname || !newLname ) {
+        res.redirect(req.get('referer'))
+    }
+
+    const updateInfo = await User.findByIdAndUpdate(userId, {
+        firstName: newFname,
+        lastName: newLname
+    })
+
+    res.redirect(req.get('referer'))
+})
+
 
 // Cafe Logic
 
