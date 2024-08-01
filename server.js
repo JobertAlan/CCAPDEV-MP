@@ -281,11 +281,36 @@ app.get('/cafe/search', async (req, res) => {
 
 })
 
+// avg review rating
+async function getRating(cafeId) {
+    try {
+        const reviews = await Review.find({ cafeReviewed: cafeId }).lean()
+
+        if (reviews.length === 0 ) {
+            return 0;
+        }
+        
+        const ratings = reviews.map(review => review.rating)
+
+        const sum = ratings.reduce((acc, rating) => acc + rating, 0)
+
+        const average = sum / ratings.length
+
+        const averageRounded = average.toFixed(1)
+
+        return averageRounded
+    } catch (error) {
+        console.error('There has been an error calculating the average rating: ', error)
+    }
+}
+
 app.get('/cafe/:id', async (req, res) => {
 
     const userData = req.session.user
 
     const cafeId = req.params.id
+
+    const cafeRating = await getRating(cafeId)
 
     const cafe = await Cafe.findById(cafeId).lean()
 
@@ -302,9 +327,18 @@ app.get('/cafe/:id', async (req, res) => {
     }))
 
     // console.log('Cafe id & current userId: ', cafe.ownedBy, userData)
+    console.log('rating: ', cafeRating)
+
+    const context = {
+        cafe,
+        reviews: reviewUserData,
+        userData,
+        cafeRating
+    }
 
     if (cafe) {
-        res.render('cafe', {cafe, reviews: reviewUserData, userData } )
+        // res.render('cafe', {cafe, reviews: reviewUserData, userData } )
+        res.render('cafe', context)
     }
     else {
         res.status(404).send('cafe not found')
