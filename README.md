@@ -12,7 +12,7 @@ Pre-requisite: Install Node.js v.20.14.0
 1. CD into folder. 
 
 2. Use the command below to install all packages:
-   ``` "npm install bcrypt cookie-parser dotenv express-fileupload express-session express jsonwebtoken mongoose nodemon validator" ```
+   ``` "npm install bcrypt cookie-parser dotenv express-fileupload express-session express-handlebars express jsonwebtoken mongoose nodemon validator" ```
 
 3. Run using command
    ``` "npm run dev" ```
