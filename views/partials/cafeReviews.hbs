@@ -37,6 +37,15 @@
 
                 {{/if}}
 
+                {{#ifEquals this.postedBy this.currUserId}}
+                    <div class="deleteButtonContainer">
+                        <form action="/cafe/delete-review/{{this._id}}" method="post">
+                            <input type="submit" value="Delete me" />
+                        </form>
+
+                    </div>
+                {{/ifEquals}}
+
                 {{#if this.ownerReply}}
 
                     <div class="ownerReplyContainer">

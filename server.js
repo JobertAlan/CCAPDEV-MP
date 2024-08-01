@@ -376,6 +376,19 @@ app.post('/cafe/:id/postreview', isAuthenticated, async (req, res) => {
     res.redirect(`/cafe/${cafeReviewed}`)
 })
 
+app.post('/cafe/delete-review/:id', isAuthenticated, async (req, res) => {
+    const reviewId = req.params.id
+
+    let thisReview = await Review.findById(reviewId)
+
+    let cafeReviewed = thisReview.cafeReviewed
+
+    let delReview = await Review.findByIdAndDelete(reviewId)
+
+    res.redirect(`/cafe/${cafeReviewed}`)
+})
+
+
 // Jank edit method
 app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
 
