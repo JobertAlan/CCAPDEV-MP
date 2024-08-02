@@ -109,13 +109,14 @@
 }
 
 .reviewContentContainer {
-    width: 1200px;
-    height: 400px;
+    width: 1350px;
+    height: auto;
     display: flex;
     flex-direction: row;
     border-style: solid;
     padding-left: 25px;
     margin-left: 25px;
+    padding-bottom: 25px;
 }
 
 .reviewPicContainer {
@@ -137,11 +138,13 @@
     margin-right: 20px;
 }
 
-.reviewTextContainer .reviewRating {
-    font-size: 35px;
-    font-weight: bold;
-    margin: 0;
-    padding-top: 15px;
+.reviewTitle {
+    line-height: 1.5;
+    letter-spacing: 1.15px;
+}
+
+.reviewTime {
+    color: #964909;
 }
 
 .reviewProper {
@@ -161,3 +164,54 @@
     background-color: rgba(125, 232, 125, 0.81);
     padding: 5px;
 }
+
+.star {
+    font-size: 24px;
+    color: #ccc; /* Empty star color */
+}
+
+.contForReviewCont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewCont {
+    width: 50%;
+    height: 50%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.review {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.reviewTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.reviewDesc {
+    margin-bottom: 5px;
+}
+
+.reviewRating {
+    margin-bottom: 10px;
+}
+
+.reviewInput {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.reviewButton {
+    margin-top: 15px;
+    margin-left: 50px;
+    padding: 10px;
+    background: none;
+}
+

@@ -12,15 +12,22 @@
             </div>
             <div class="reviewTextContainer">
                 <h2>{{this.firstName}}</h2>
-                <p>Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
-                <p>{{this.title}}</p>
-                <p class="reviewRating">{{this.rating}} Stars!</p>
+                <h3 class="reviewTitle">{{this.rating}}/5 Stars • {{this.title}}</h3>
+                <p class="reviewTime">Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
 
                 <p class="reviewProper">
                     {{this.description}}
                 </p>
 
-                {{!-- <h3>This is the _id of this review: {{this._id}}</h3> --}}
+                <p>Review ID: {{this._id}}</p>
+
+                {{#if this.ownerReply}}
+
+                    <div class="ownerReplyContainer">
+                        <p>Cafe Owner Reply: {{this.ownerReply}}</p>
+                    </div>
+                
+                {{/if}}
 
                 {{#unless this.currUserId }}
                     <div class="voteButtonContainer">
@@ -34,25 +41,9 @@
                         <h3>️‍🔥 {{this.upvotes}}</h3> 
                         <button>Updoot</button>
                     </div>
-
                 {{/if}}
 
-                {{#ifEquals this.postedBy this.currUserId}}
-                    <div class="deleteButtonContainer">
-                        <form action="/cafe/delete-review/{{this._id}}" method="post">
-                            <input type="submit" value="Delete me" />
-                        </form>
-
-                    </div>
-                {{/ifEquals}}
-
-                {{#if this.ownerReply}}
-
-                    <div class="ownerReplyContainer">
-                        <p>{{this.ownerReply}}</p>
-                    </div>
                 
-                {{/if}}
 
 
                 {{log 'this' this}}
@@ -83,6 +74,7 @@
 
 <script>
 
-    
-    
+
+
+
 </script>
