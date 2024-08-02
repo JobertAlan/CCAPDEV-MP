@@ -12,8 +12,8 @@
             </div>
             <div class="reviewTextContainer">
                 <h2>{{this.firstName}}</h2>
-                <h3 class="reviewTitle">{{this.rating}}/5 Stars • {{this.title}}</h3>
-                <p class="reviewTime">Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
+                <h3 class="reviewTitle">{{this.title}} • {{this.rating}}/5 Stars</h3>
+                <p class="reviewTime">Posted on: {{toLocale this.postedOn}} <br> Edited on: {{toLocale this.editedOn}}</p>
 
                 <p class="reviewProper">
                     {{this.description}}
@@ -24,7 +24,7 @@
                 {{#if this.ownerReply}}
 
                     <div class="ownerReplyContainer">
-                        <p>Cafe Owner Reply: {{this.ownerReply}}</p>
+                        <p><span class="cafeownereply">Cafe Owner</span> <br> -  {{this.ownerReply}}</p>
                     </div>
                 
                 {{/if}}

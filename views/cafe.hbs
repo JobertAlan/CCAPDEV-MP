@@ -23,29 +23,31 @@
         <div class="contForReviewCont">
             <div class="reviewCont">
                 <form class="review" action="/cafe/{{cafe._id}}/postreview" method="post">
-                    <div class="reviewTitle"><label>Review Title: </label>
-                    <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
+                    <div class="reviewTitle"><label>Title: </label>
+                    <input class="reviewInput" type="text" placeholder="Subject" name="reviewTitle" /><br></div>
 
-                    <div class="reviewDesc"><label>Review Description: </label><br>
-                    <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
+                    <div class="reviewDesc"><label>Write your Review: </label><br>
+                    <textarea class="reviewInput" rows="8" cols="50" name="reviewDescription" placeholder="Input your text here..."></textarea><br></div>
 
                     <div class="reviewRating"><label>Give a rating: </label>
-                    <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
+                    <input class="reviewInputStar" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
+
+                    </div>
 
                     <button class="reviewButton" type="submit">✍️ Write a Review</button>
                 </form>
             </div>
             
-            <div class="reviewCont">
+            <div class="EditreviewCont">
                 <form class="review" action="/cafe/{{cafe._id}}/patchreview" method="post">
-                    <div class="reviewTitle"><label>Review Title: </label>
-                    <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
+                    <div class="reviewTitle"><label>Edit Title: </label>
+                    <input class="reviewInput" type="text" placeholder="New Title" name="reviewTitle" /><br></div>
 
                     <div class="reviewDesc"><label>Review Description: </label><br>
-                    <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
+                    <textarea class="reviewInput" rows="8" cols="50" name="reviewDescription" placeholder="Input new review here..."></textarea><br></div>
 
-                    <div class="reviewRating"></div><label>Give a rating: </label>
-                    <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
+                    <div class="reviewRating"><label>Give a rating: </label>
+                    <input class="reviewInputStar" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
                                     
                     <button class="reviewButton" type="submit" id="editButton">☝ Submit Edits to Your Review</button>
                 </form>

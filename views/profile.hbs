@@ -17,15 +17,15 @@
             <div class="user-info">
                 <img src='{{userData.picturePath}}' alt="user_pfp" />
                 <h2>{{userData.firstName}}  {{userData.lastName}}</h2>
-                <h3>Email: {{userData.email}}</h3>
+                <h3>{{userData.email}}</h3>
                 <hr>
                 <p>193 reviews</p>
                 <p>41 ratings</p>
 
                 <!-- has all the interaction stuff to the user -->
                 <div class="interact-cont">
-                    <button>✉ Message</button>
-                    <button>❤︎ Follow</button>
+                    <button class="msgbutton">✉ Message</button>
+                    <button class="followbutton">❤︎ Follow</button>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
 
                         <div class="reviewTextContainer">
                             <h3 class="reviewTitle">{{this.rating}}/5 Stars • {{this.title}}</h3>
-                            <p class="reviewTime">Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
+                            <p class="reviewTime">Posted on: {{toLocale this.postedOn}} <br> Edited on: {{toLocale this.editedOn}}</p>
 
                             <p class="reviewProper">
                                 {{this.description}}
@@ -97,10 +97,10 @@
 
         {{#if userData.isOwner }}
             <div class="myCafeContainer">
-                <h2 class="ownerInputTitle">Input your cafe here</h2>
+                <h2 class="ownerInputTitle">Cafe Creation</h2>
                 <form action="/profile/postcafe" method="post">
-                    <div class="cafeName"><label>Cafe Name:  </label><input class="cafeInput" type="text" name="name"/></div> <br>
-                    <div class="cafeDesc"><label>Cafe Description: </label><br><textarea class="cafeInput" rows="4" cols="50" name="description"></textarea></div>
+                    <div class="cafeName"><label>Cafe Name:  </label><input class="cafeInput" type="text" name="name" placeholder="Title of your Cafe"/></div> <br>
+                    <div class="cafeDesc"><label>Cafe Description: </label><br><textarea class="cafeInput" rows="6" cols="50" name="description" placeholder="Input text here..."></textarea></div>
                     <br>
                     <input class="submitButton" type="submit" value="Submit"/>
                 </form>
