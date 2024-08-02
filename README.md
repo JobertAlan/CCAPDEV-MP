@@ -26,7 +26,8 @@ Pre-requisite: Install Node.js v.20.14.0
     3* Use the link above to learn how to use postman
 
 # Minor notes:
-- Forgot to implement not being able to add a cafe if you already have one as an owner, oops
+- I mean, we managed to get it to deploy so that's pretty cool I think
+- And Like uhm, we're missing a good chunk of static images and stuff which kinda sucks
 - Ah yeah I think we bit off more than we can chew using react so we had to revert back to basic jquery hbs
     - as a result some pages/css might not be working to its fullest but we'll work on it promise hehe
     - that and i'm pretty sure there's a bunch of files in here that don't do anything *yet* or *ever*
