@@ -219,7 +219,10 @@ app.get('/logout', (req, res) => {
     })
 })
 
-
+// About us
+app.get('/about', async (req, res) => {
+    res.render('about')
+})
 
 // Profile
 app.get('/profile', isAuthenticated, async (req, res) => {
