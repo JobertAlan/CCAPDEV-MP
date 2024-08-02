@@ -384,9 +384,11 @@ app.post('/cafe/:id/postreview', isAuthenticated, async (req, res) => {
             rating: reviewRating,
             postedBy: reviewedBy,
             cafeReviewed: cafeReviewed })
+
+            res.redirect(`/cafe/${cafeReviewed}`)
     }
 
-    res.redirect(`/cafe/${cafeReviewed}`)
+    
 })
 
 app.post('/cafe/delete-review/:id', isAuthenticated, async (req, res) => {
@@ -426,11 +428,13 @@ app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
             rating: reviewRating,
             editedOn: currentDate
         })
+
+        res.redirect(`/cafe/${cafeReviewed}`)
     }
 
 
 
-    res.redirect(`/cafe/${cafeReviewed}`)
+    
 })
 
 
