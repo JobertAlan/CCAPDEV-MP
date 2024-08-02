@@ -21,37 +21,19 @@
         <!-- Review Buttons -->
         {{#unless userData.isOwner }}
 
-            <div class="reviewButtonContainer">
+        <div class="reviewCont">
+            <form class="review" action="/cafe/{{cafe._id}}/postreview" method="post">
+                <div class="reviewTitle"><label>Review Title: </label>
+                <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
 
-            <form action="/cafe/{{cafe._id}}/postreview" method="post">
-                <label>Review Title: </label>
-                <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
+                <div class="reviewDesc"><label>Review Description: </label><br>
+                <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
 
-                <label>Review Description: </label><br>
-                <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
+                <div class="reviewRating"><label>Give a rating: </label>
+                <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
 
-                <label>Give a rating: </label><br>
-                <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
-
-                <button type="submit">✍️ Write a Review</button>
+                <button class="reviewButton" type="submit">✍️ Write a Review</button>
             </form>
-
-        <form action="/cafe/{{cafe._id}}/patchreview" method="post">
-            
-            <label>Review Title: </label>
-                <input type="text" placeholder="reviewTitle" name="reviewTitle" /><br>
-
-                <label>Review Description: </label><br>
-                <textarea rows="4" cols="50" name="reviewDescription"></textarea><br>
-
-                <label>Give a rating: </label><br>
-                <input type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br>
-            
-            <button type="submit" id="editButton">
-                ☝ Edit Your Review
-            </button>
-        </form>
-            
         </div>
 
         {{/unless}}

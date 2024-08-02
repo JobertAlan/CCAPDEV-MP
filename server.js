@@ -379,11 +379,12 @@ app.post('/cafe/:id/patchreview', isAuthenticated, async (req, res) => {
             rating: reviewRating,
             editedOn: currentDate
         })
+        res.redirect(`/cafe/${cafeReviewed}`)
     }
 
 
 
-    res.redirect(`/cafe/${cafeReviewed}`)
+    
 })
 
 

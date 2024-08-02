@@ -71,12 +71,19 @@
                         </div>
 
                         <div class="reviewTextContainer">
-                            <h3>{{this.title}}</h3>
-                            <p class="reviewRating">{{this.rating}}</p>
+                            <h3 class="reviewTitle">{{this.rating}}/5 Stars • {{this.title}}</h3>
+                            <p class="reviewTime">Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
 
                             <p class="reviewProper">
                                 {{this.description}}
                             </p>
+
+                            <p>Review ID: {{this._id}}</p>
+
+                            <div class="voteButtonContainer">
+                                <h3>️‍🔥 {{this.upvotes}}</h3>
+                            </div>
+
                         </div>
 
                     </div>
@@ -90,12 +97,12 @@
 
         {{#if userData.isOwner }}
             <div class="myCafeContainer">
-                <p>Input your cafe here</p>
+                <h2 class="ownerInputTitle">Input your cafe here</h2>
                 <form action="/profile/postcafe" method="post">
-                    <label>Cafe Name: </label><input type="text" name="name"/>
-                    <label>Cafe Description: </label><textarea rows="4" cols="50" name="description"></textarea>
-
-                    <input type="submit" value="send it"/>
+                    <div class="cafeName"><label>Cafe Name:  </label><input class="cafeInput" type="text" name="name"/></div> <br>
+                    <div class="cafeDesc"><label>Cafe Description: </label><br><textarea class="cafeInput" rows="4" cols="50" name="description"></textarea></div>
+                    <br>
+                    <input class="submitButton" type="submit" value="Submit"/>
                 </form>
             </div>
         {{/if}}

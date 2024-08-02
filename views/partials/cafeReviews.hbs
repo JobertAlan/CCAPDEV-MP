@@ -12,15 +12,22 @@
             </div>
             <div class="reviewTextContainer">
                 <h2>{{this.firstName}}</h2>
-                <p>Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
-                <p>{{this.title}}</p>
-                <p class="reviewRating">{{this.rating}} Stars!</p>
+                <h3 class="reviewTitle">{{this.rating}}/5 Stars • {{this.title}}</h3>
+                <p class="reviewTime">Posted on: {{toLocale this.postedOn}}  Edited on: {{toLocale this.editedOn}}</p>
 
                 <p class="reviewProper">
                     {{this.description}}
                 </p>
 
-                <h3>This is the _id of this review: {{this._id}}</h3>
+                <p>Review ID: {{this._id}}</p>
+
+                {{#if this.ownerReply}}
+
+                    <div class="ownerReplyContainer">
+                        <p>Cafe Owner Reply: {{this.ownerReply}}</p>
+                    </div>
+                
+                {{/if}}
 
                 {{#unless this.currUserId }}
                     <div class="voteButtonContainer">
@@ -34,16 +41,23 @@
                         <h3>️‍🔥 {{this.upvotes}}</h3> 
                         <button>Updoot</button>
                     </div>
+                    <button class="reviewButton" onclick="showReviewForm()">Open Review Editor</button>
 
+                    <form class="review" id="editReview" action="/cafe/{{this.cafeReviewed}}/patchreview" method="post">
+                        <div class="reviewTitle"><label>Review Title: </label>
+                        <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
+
+                        <div class="reviewDesc"><label>Review Description: </label><br>
+                        <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
+
+                        <div class="reviewRating"></div><label>Give a rating: </label>
+                        <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
+                        
+                        <button class="reviewButton" type="submit" id="editButton">☝ Submit Edits</button>
+                    </form>
                 {{/if}}
 
-                {{#if this.ownerReply}}
-
-                    <div class="ownerReplyContainer">
-                        <p>{{this.ownerReply}}</p>
-                    </div>
                 
-                {{/if}}
 
 
                 {{log 'this' this}}
@@ -73,7 +87,13 @@
 
 
 <script>
-
-    
-    
+    function showReviewForm() {
+        const reviewForm = document.getElementById('editReview');
+        // Check the current display state and toggle it
+        if (reviewForm.style.display === 'none' || reviewForm.style.display === '') {
+            reviewForm.style.display = 'block'; // Show the form 
+        } else {
+            reviewForm.style.display = 'none'; // Hide the form
+        }
+    }
 </script>

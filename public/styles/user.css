@@ -119,6 +119,15 @@
     padding-top: 15px;
 }
 
+.reviewTitle {
+    line-height: 1.5;
+    letter-spacing: 1.15px;
+}
+
+.reviewTime {
+    color: #964909;
+}
+
 .reviewProper {
     line-height: 1.5;
     letter-spacing: 1.15px;
@@ -135,4 +144,24 @@
     border-radius: 10px;
     background-color: rgba(125, 232, 125, 0.81);
     padding: 5px;
+}
+
+.cafeName {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cafeInput {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.cafeDesc {
+    margin-bottom: 5px;
+}
+
+.submitButton {
+    padding: 10px;
+    background: none;
 }
