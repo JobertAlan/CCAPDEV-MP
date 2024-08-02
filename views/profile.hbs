@@ -19,21 +19,40 @@
                 <h2>{{userData.firstName}}  {{userData.lastName}}</h2>
                 <h3>Email: {{userData.email}}</h3>
                 <hr>
-                
+                <p>193 reviews</p>
+                <p>41 ratings</p>
 
+                <!-- has all the interaction stuff to the user -->
+                <div class="interact-cont">
+                    <button>✉ Message</button>
+                    <button>❤︎ Follow</button>
+                </div>
             </div>
         </div>
 
-
-        <div class="editInfo">
-            <form action="/profile/{{userData._id}}" method="post">
-                <label>First Name: </label> <input type="text" name="newFname" /> <br>
-                <label>Last Name: </label> <input type="text" name="newLname" /> <br>
-
-                <input type="submit" value="Change names" />
-            </form>
-        </div>
-
+        {{!-- <!-- stuff on the right -->
+        <div class="right-cont">
+            <h2>Stats</h2>
+            <br>
+            <div class="stats">
+                <div class="stat-num">
+                    <h3>41</h3>
+                    <p>Updoots</p>
+                </div>
+                <div class="stat-num">
+                    <h3>1,540</h3>
+                    <p>Photos</p>
+                </div>
+                <div class="stat-num">
+                    <h3>57</h3>
+                    <p>Videos</p>
+                </div>
+                <div class="last-stat-num">
+                    <h3>11</h3>
+                    <p>Edits</p>
+                </div>
+            </div>
+        </div> --}}
 
         <!-- review stuff at the bottom -->
         {{#unless userData.isOwner }}
@@ -92,9 +111,5 @@
 
     </div>
 
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        
-    })
-</script>
+
 

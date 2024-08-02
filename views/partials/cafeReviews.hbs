@@ -41,20 +41,6 @@
                         <h3>️‍🔥 {{this.upvotes}}</h3> 
                         <button>Updoot</button>
                     </div>
-                    <button class="reviewButton" onclick="showReviewForm()">Open Review Editor</button>
-
-                    <form class="review" id="editReview" action="/cafe/{{this.cafeReviewed}}/patchreview" method="post">
-                        <div class="reviewTitle"><label>Review Title: </label>
-                        <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
-
-                        <div class="reviewDesc"><label>Review Description: </label><br>
-                        <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
-
-                        <div class="reviewRating"></div><label>Give a rating: </label>
-                        <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
-                        
-                        <button class="reviewButton" type="submit" id="editButton">☝ Submit Edits</button>
-                    </form>
                 {{/if}}
 
                 
@@ -87,13 +73,8 @@
 
 
 <script>
-    function showReviewForm() {
-        const reviewForm = document.getElementById('editReview');
-        // Check the current display state and toggle it
-        if (reviewForm.style.display === 'none' || reviewForm.style.display === '') {
-            reviewForm.style.display = 'block'; // Show the form 
-        } else {
-            reviewForm.style.display = 'none'; // Hide the form
-        }
-    }
+
+
+
+
 </script>

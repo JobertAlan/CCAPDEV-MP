@@ -5,7 +5,7 @@
 <!-- Contains image banner + Name & rating of cafe -->
     <div id="reviewHeaderContainer-maxims">
         <div class="reviewCafeNameContainer">
-            <h3>The average rating is: {{cafeRating}}</h3>
+            <h3>★★★★☆ 4.3</h3>
             <h1>{{cafe.name}}</h1>
         </div>
     </div>
@@ -20,22 +20,37 @@
     {{#if userData }}
         <!-- Review Buttons -->
         {{#unless userData.isOwner }}
+        <div class="contForReviewCont">
+            <div class="reviewCont">
+                <form class="review" action="/cafe/{{cafe._id}}/postreview" method="post">
+                    <div class="reviewTitle"><label>Review Title: </label>
+                    <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
 
-        <div class="reviewCont">
-            <form class="review" action="/cafe/{{cafe._id}}/postreview" method="post">
-                <div class="reviewTitle"><label>Review Title: </label>
-                <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
+                    <div class="reviewDesc"><label>Review Description: </label><br>
+                    <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
 
-                <div class="reviewDesc"><label>Review Description: </label><br>
-                <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
+                    <div class="reviewRating"><label>Give a rating: </label>
+                    <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
 
-                <div class="reviewRating"><label>Give a rating: </label>
-                <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
+                    <button class="reviewButton" type="submit">✍️ Write a Review</button>
+                </form>
+            </div>
+            
+            <div class="reviewCont">
+                <form class="review" action="/cafe/{{cafe._id}}/patchreview" method="post">
+                    <div class="reviewTitle"><label>Review Title: </label>
+                    <input class="reviewInput" type="text" placeholder="reviewTitle" name="reviewTitle" /><br></div>
 
-                <button class="reviewButton" type="submit">✍️ Write a Review</button>
-            </form>
+                    <div class="reviewDesc"><label>Review Description: </label><br>
+                    <textarea class="reviewInput" rows="4" cols="50" name="reviewDescription"></textarea><br></div>
+
+                    <div class="reviewRating"></div><label>Give a rating: </label>
+                    <input class="reviewInput" type="number" id="quantity" name="reviewRating" min="1" max="5" value="5"><br></div>
+                                    
+                    <button class="reviewButton" type="submit" id="editButton">☝ Submit Edits to Your Review</button>
+                </form>
+            </div>
         </div>
-
         {{/unless}}
     {{/if}}
 
