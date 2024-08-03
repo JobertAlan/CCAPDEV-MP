@@ -1,3 +1,9 @@
+## As of 8/3/24 10:23am This project is archived
+- The mongoDB cluster has been shut down
+- The render deployment has been shut down
+- So like yknow yknow
+
+
 ## CONTENTS:
 - Jobert's Quick Start Guide
 - Explanation for the folders [oh wow this is bare]
